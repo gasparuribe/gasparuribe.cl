@@ -1,0 +1,81 @@
+<html><head></head><body>
+  <h3>Requests</h3>
+  <div id="response"></div>
+  <hr>
+  <b>Ultima modificacion de gaspar.github.io:</b> <span id="date"></span>
+  <hr>
+  <b>Ultimos posts en reddit:</b> <br><ul id="reddit"></ul>
+  <script>
+    //https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+    //https://www.tjvantoll.com/2015/09/13/fetch-and-errors/
+
+
+    var response_div=document.getElementById("response");
+//https://3fipumcqua3kbo3iu56xue7diu0inbpn.lambda-url.us-east-2.on.aws/?name=pikachu
+    fetch('https://httpstat.us/201')
+        .then(handleErrors)
+        .then((data) => console.log(data))
+        .catch(function(err) {
+          console.log("Catch Error: "+err);
+        });
+
+
+
+
+    fetch('https://3fipumcqua3kbo3iu56xue7diu0inbpn.lambda-url.us-east-2.on.aws?action=spotify_data',)
+        .then(handleErrors)
+        .then((response) => response.json())
+        .then(function(data){
+          console.log(data);
+          if(data.spotify.playing.is_playing){
+            response_div.insertAdjacentHTML('beforeend',"<hr><b>Ultimo de spotify: </b>"+data.spotify.playing.last_song.song+" - "+data.spotify.playing.last_song.artists+"<br>");
+          }else{
+            if(data.spotify.playing.last_song){
+              response_div.insertAdjacentHTML('beforeend',"<hr><b>Ultimo de spotify: </b> No ahora, pero... "+data.spotify.playing.last_song.song+" - "+data.spotify.playing.last_song.artists+"<br>");
+            }else{
+              response_div.insertAdjacentHTML('beforeend',"<hr><b>Ultimo de spotify: </b> No estoy escuchando ahora.<br>");
+            }
+          }
+        })
+        .catch(function(err) {
+          console.log("Catch Error: "+err);
+        });
+
+    fetch('https://www.reddit.com/user/cookiesonder/submitted.json')
+      .then(handleErrors)
+      .then((response) => response.json())
+      .then(function(recived){
+        thePosts=recived.data.children;
+        thePosts.forEach((post)=>{
+          document.getElementById("reddit").insertAdjacentHTML('beforeend',"<li>"+formatted_date(post.data.created_utc * 1000)+" "+post.data.title+"</li>");
+        });
+      });
+
+
+    fetch('https://api.github.com/users/gasparuribe/repos')
+      .then(handleErrors)
+      .then((response) => response.json())
+      .then((data) => set_github_date(data));
+      
+    function set_github_date(repos){
+        repos.forEach((repo)=>{
+          if (repo.name == "gasparuribe.github.io"){
+            document.getElementById("date").innerHTML=formatted_date(repo.pushed_at);//repo.updated_at
+          }
+        });
+    }
+
+
+
+    function handleErrors(response) {
+        if (!response.ok) {
+            throw Error(response.statusText);
+        }
+        return response;
+    }
+    function formatted_date(number){
+      return new Date(number).toLocaleString("es-CL", {timeZone: "America/Santiago"});
+    }
+  </script>
+</body>
+</html>
