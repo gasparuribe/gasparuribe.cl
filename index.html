@@ -123,21 +123,21 @@
     										<h5 class="block" data-ng-class="result" style="text-align: center;">{{ resultMessage }}</h5>
                         <div class="form-group" data-ng-class="{ 'has-error': contactform.inputMessage.$invalid && submitted }">
                           <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                            <textarea
+                            <textarea data-hj-allow
                             data-ng-model="formData.msg"
-                            class="mdl-textfield__input"  rows="3" id="inputMessage" name="msg" required></textarea>
+                            class="mdl-textfield__input data-hj-allow"  rows="3" id="inputMessage" name="msg" required></textarea>
                             <label class="mdl-textfield__label" for="inputMessage">El mensaje <span style="color: #ff0000;font-size: 120%;"> *<span></label>
                           </div>
                         </div>
                         <div class="form-group" data-ng-class="{ 'has-error': contactform.inputName.$invalid && submitted }">
   												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  													<input autocomplete="off" data-ng-model="formData.name" class="mdl-textfield__input" type="text" id="inputName" name="name">
+  													<input data-hj-allow autocomplete="off" data-ng-model="formData.name" class="mdl-textfield__input data-hj-allow" type="text" id="inputName" name="name">
   													<label class="mdl-textfield__label" for="inputName">Tu nombre (Alias)</label>
   												</div>
   											</div>
   											<div class="form-group" data-ng-class="{ 'has-error': contactform.inputEmail.$invalid && submitted }">
   												<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-  													<input autocomplete="off" data-ng-model="formData.contact" class="mdl-textfield__input" type="text" id="inputEmail" name="contact">
+  													<input data-hj-allow autocomplete="off" data-ng-model="formData.contact" class="mdl-textfield__input data-hj-allow" type="text" id="inputEmail" name="contact">
   													<label class="mdl-textfield__label" for="inputEmail">Tu contacto (Mail, Url, N° Celular, otro...)</label>
   												</div>
   											</div>
