@@ -15,7 +15,7 @@ app.controller('ContactController', function ($scope, $http) {
           $scope.result='bg-yellow';
             $http({
                 method  : 'POST',
-                url     : 'https://3fipumcqua3kbo3iu56xue7diu0inbpn.lambda-url.us-east-2.on.aws?action=contacto',
+                url     : aws_url+'?action=contacto',
                 data    : JSON.stringify($scope.formData),
                 headers : { 'Content-Type': 'application/json' }  //set the headers so angular passing info as form data (not request payload)
             }).success(function(data){

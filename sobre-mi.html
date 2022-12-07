@@ -244,6 +244,12 @@
         <noscript><div id="warning_compatibility" style="position:fixed;bottom:0px;background-color:red;color:#000;min-height:40px;font-size:180%;width:100%;text-align:center;"> <i class="zmdi zmdi-alert-triangle" style="color:yellow;font-size:150%;"></i>Tu navegador no es compatible con JavaScript</div></noscript>
   		</div>
   		<!--/Main Wrapper-->
+
+
+
+<script type="text/javascript" src="js/main.js" id="main-js"></script>
+<script type="text/javascript" src="js/hotjar.js" id="hotjar-js"></script>
+
 <script>
       var element_edad=document.getElementById("edad");
       const currentMonth = new Date().getMonth() + 1;
@@ -270,7 +276,7 @@
       }
 
 
-      fetch('https://3fipumcqua3kbo3iu56xue7diu0inbpn.lambda-url.us-east-2.on.aws?action=spotify_data',)
+      fetch(aws_url+'?action=spotify_data',)
           .then(handleErrors)
           .then((response) => response.json())
           .then(function(data){
@@ -391,9 +397,5 @@
 
 
 </script>
-
-
-
-<script type="text/javascript" src="js/hotjar.js" id="hotjar-js"></script>
 </body>
 </html>
