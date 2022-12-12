@@ -34,7 +34,7 @@
                     <div class="mdl-card mdl-shadow--2dp">
                       <div class="row">
                         <div class="col-md-5 col-xs-12">
-                          <div class="candidate-img"  style="background: url('Captura-de-pantalla-2018-10-19-a-las-01.32.09');background-size: cover;">
+                          <div class="candidate-img"  style="background: url('Captura-de-pantalla-2018-10-19-a-las-01.32.09.png');background-size: cover;">
                           </div>
                           <!-- Iconos sociales -->
                         </div>
@@ -115,16 +115,9 @@
                       </div>
                     </div>
                   </div>
-                  <div class="col-sm-6 mb-30">
-                    <div class="mdl-card mdl-shadow--2dp mb-20" style="padding: 20px;">
-                      <h3>Mis publicaciones en Reddit</h3>
-
-                      <p style="font-size: 88%;">Se obtiene automáticamente.<br> Documentación <a target="_blank" href="https://www.reddit.com/dev/api/" style="color: #3c3cff;">aquí.</a></p>
-                    </div>
-                  </div>
                 </div>
                 <div class="row mb-30" style="margin-right: -15px;margin-left: 15px;">
-                  <div class="slider" id="reddit_latest_posts">
+                  <div class="slider" id="mixed_posts">
                     <span style="padding: 35px;font-size: 18px;">Espere, cargando publicaciones.</span>
                   </div>
                 </div>
@@ -163,6 +156,7 @@
                       <h2 class="mb-30">Preferencias en música</h2>
                       Mis bandas favoritas  son <span class="ref-name">Mac Miller</span> y <span class="ref-name">Slipknot</span>.
                       <br>Con el paso de los años mi gusto musical fue cambiando, aprendí a disfrutar variados estilos.
+                      <br>También puedes revisar mi <a target="_blank" href="https://www.youtube.com/playlist?list=PLnZnMBzLxULDOlHH-JSkwG6cwxI_9WcBG" style="color: #3c3cff;">Playlist en Youtube</a>
                       <br><br>
                       <p class="mb-20" style="font-size: 88%;">
                         La siguiente informacion se obtiene automáticamente de Spotify,
@@ -181,8 +175,7 @@
 											<h5 class="mb-5">Top 10 Artistas</h5>
                       <ol class="blog-detail-list mt-20" id="spotify_top_artists" style="padding-left: 20px;padding-right: 15px;"></ol>
                       <p class="mt-20" style="font-size: 88%;">
-                        Fin de la información automatica. Documentación
-                        <a target="_blank" href="https://developer.spotify.com/" style="color: #3c3cff;">aquí</a>.
+                        Fin de la información automatica.
                       </p>
   									</div>
   								</div>
@@ -248,154 +241,7 @@
 
 
 <script type="text/javascript" src="js/main.js" id="main-js"></script>
+<script type="text/javascript" src="js/sobre-mi.js" id="sobre-mi-js"></script>
 <script type="text/javascript" src="js/hotjar.js" id="hotjar-js"></script>
-
-<script>
-      var element_edad=document.getElementById("edad");
-      const currentMonth = new Date().getMonth() + 1;
-      const currentYear = new Date().getFullYear();
-      var mescumple=2;
-      var meshoy=currentMonth;
-      var anocumple=1994;
-      var anohoy=currentYear;
-      if(meshoy>=mescumple){
-        element_edad.innerHTML=anohoy-anocumple;
-      }else{
-        element_edad.innerHTML=anohoy-anocumple-1;
-      }
-
-
-      function handleErrors(response) {
-          if (!response.ok) {
-              throw Error(response.statusText);
-          }
-          return response;
-      }
-      function formatted_date(number){
-        return new Date(number).toLocaleString("es-CL", {timeZone: "America/Santiago"});
-      }
-
-
-      fetch(aws_url+'?action=spotify_data',)
-          .then(handleErrors)
-          .then((response) => response.json())
-          .then(function(data){
-            //console.log(data);
-            if(data.spotify.playing.is_playing){
-              document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend','<span class="ref-name mb-5 mt-20">'+data.spotify.playing.last_song.song+'</span> - '+data.spotify.playing.last_song.artists);
-            }else{
-              if(data.spotify.playing.last_song){
-                document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend','<span class="ref-name mb-5 mt-20">(pausa)  </span>'+data.spotify.playing.last_song.song+' - '+data.spotify.playing.last_song.artists);
-              }else{
-                document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend',"---nada---");
-              }
-            }
-            if(data.spotify.top_songs.response=="ok"){
-              var songslist=data.spotify.top_songs.songs;
-              for (const [key, value] of Object.entries(songslist)) {
-                if (value.song){
-                  document.getElementById("spotify_top_song").insertAdjacentHTML('beforeend','<li><span class="ref-name mb-5 mt-20">'
-                    +value.song+'</span> - '+value.artists+'</li>'
-                  );
-                }
-              }
-            }else{
-              document.getElementById("spotify_top_song").insertAdjacentHTML('beforeend',"<li>---nada---</li>");
-            }
-            if(data.spotify.top_artists.response=="ok"){
-              var artistslist=data.spotify.top_artists.artists;
-              for (const [key, value] of Object.entries(artistslist)) {
-                document.getElementById("spotify_top_artists").insertAdjacentHTML('beforeend','<li><span class="ref-name mb-5 mt-20">'
-                    +value+'</span></li>'
-                );
-              }
-            }else{
-              document.getElementById("spotify_top_artists").insertAdjacentHTML('beforeend',"<li>---nada---</li>");
-            }
-          })
-          .catch(function(err) {
-            console.log("Catch Error: "+err);
-          });
-
-          var reddit_forcount=0;
-          fetch('https://www.reddit.com/user/gasparuribe/submitted.json')
-            .then(handleErrors)
-            .then((response) => response.json())
-            .then(function(recived){
-              thePosts=recived.data.children;
-              //console.log(thePosts);
-              thePosts.forEach((post)=>{
-                var post_style="";
-                if(reddit_forcount<1){
-                  document.getElementById("reddit_latest_posts").innerHTML="";
-                  //post_style="margin-left: -15px;";
-                }
-                reddit_forcount=reddit_forcount+1;
-                var post_url="https://www.reddit.com"+post.data.permalink;
-
-                var post_thumbnail="default";
-                if(post.data.thumbnail){
-                  post_thumbnail=post.data.thumbnail;
-                }
-                if(post_thumbnail=="default"||post_thumbnail=="self"){
-                  post_thumbnail="https://via.placeholder.com/460x272?text=404";
-                }
-                if(post.data.media_metadata){
-                  var postMedia=post.data.media_metadata;
-                  console.log(postMedia);
-                  var forCount=0;
-                  Object.keys(postMedia).forEach(key => {
-                    if(forCount==0){
-                      if(postMedia[key].m=="image/jpg"){
-                        post_thumbnail=postMedia[key].p[2].u;
-                        forCount++;
-                      }
-                    }
-                    //console.log(key);
-                  });
-                }
-                var img_style="background: transparent url(\'"+post_thumbnail+"\') repeat scroll center center/cover;";
-                var texto="";
-                if(post.data.selftext){
-                  texto=post.data.selftext;
-                }
-                var date= new Date(post.data.created_utc * 1000).toLocaleString("es-CL", {timeZone: "America/Santiago"})
-
-                var html_to_return=""+
-      "            <div class=\"slide\" id=\"slide-"+reddit_forcount+"\" data-postCategory=\"\" style=\""+post_style+"\">"+
-      "              <div class=\"col-sm-4 mb-30\" style=\"width: 300px;\">"+
-      "              <div class=\"mdl-card mdl-shadow--2dp pa-0\">"+
-      "                <div class=\"mdl-card__title pa-0\">"+
-      "                  <a target=\"_blank\" href=\""+post_url+"\">"+
-      "                    <div class=\"blog-img blog-1\" style=\""+img_style+"height: 150px;\"></div>"+
-      "                  </a>"+
-      "                </div>"+
-      "                <div class=\"mdl-card__supporting-text relative\" style=\"padding-bottom: 10px;\">"+
-      "                  <span class=\"blog-cat\"><b>Posted in:</b> "+post.data.subreddit_name_prefixed+"</span>"+
-      "                  <a target=\"_blank\" href=\""+post_url+"\">"+
-      "                    <h4 class=\"mt-15 mb-10\">"+post.data.title+"</h4>"+
-      "                  </a>"+
-      "                  <p>"+texto+"</p>"+
-      "                  <a target=\"_blank\" href=\""+post_url+"\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect bg-orange mdl-shadow--8dp\">"+
-      "                    <i class=\"zmdi zmdi-reddit\" style=\"font-size: 35px;margin-left: -7px;\"></i>"+
-      "                  </a>"+
-      "                </div>"+
-      "                <div class=\"mdl-card__actions mdl-card--border\">"+
-      "                  <span class=\"blog-post-date inline-block\">"+date+"</span>"+
-      "                  <div class=\"mdl-layout-spacer\"></div>"+
-      "                </div>"+
-      "              </div>"+
-      "            </div>";
-                document.getElementById("reddit_latest_posts").insertAdjacentHTML('beforeend',html_to_return);
-              });
-              if(reddit_forcount<1){
-                document.getElementById("reddit_latest_posts").innerHTML="<span style=\"padding: 35px;font-size: 18px;\">El usuario aún no publica en Reddit, aquí aparecerá cuando lo haga.</span>";
-              }
-            });
-
-
-
-
-</script>
 </body>
 </html>

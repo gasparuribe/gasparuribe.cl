@@ -720,11 +720,14 @@ p {
 .bg-red {
   background: #ff3d00 !important; }
 
-.bg-hotpink {
-  background: hotpink !important; }
-
 .bg-red-dark {
   background: #c82121 !important; }
+
+.bg-red-red {
+  background: red !important; }
+
+.bg-hotpink {
+  background: hotpink !important; }
 
 .bg-blueish-dark{
   background: #404b89 !important; }
