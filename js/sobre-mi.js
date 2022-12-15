@@ -1,36 +1,48 @@
 const faws = aws_url+'/?action=sobre_mi';
 const freddit = 'https://www.reddit.com/user/gasparuribe/submitted.json';
-
+//const ffail = 'https://httpstat.us/500';
 var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=404";
 var publicaciones_to_show=[];
 const promises = [
   fetch(faws),
-  fetch(freddit)
+  fetch(freddit),
+  //fetch(ffail)
 ];
 Promise.all(promises)
   .then(function(responses) {
-    //console.log(responses);
+    console.log(responses);
     responses.forEach(async (response)=>{
-      const data = await response.json();
-      if(response.url==faws){
-        if(data.spotify){
-          show_spotify(data.spotify);
-        }
-        if(data.youtube){
-          if(data.youtube.posts){
-            var dyp=data.youtube.posts;
-            dyp.forEach((post)=>{
+      if(response.ok){
+        if(response.headers.get('Content-Type').includes('json')){
+          const data = await response.json();
+          if(response.url==faws){
+            if(data.spotify){
+              show_spotify(data.spotify);
+            }
+            if(data.youtube){
+              if(data.youtube.posts){
+                var dyp=data.youtube.posts;
+                dyp.forEach((post)=>{
+                  publicaciones_to_show.push(post);
+                });
+              }
+            }
+            //get publicaciones
+          }else if(response.url==freddit){
+            var frd=format_reddit_data(data);
+            frd.forEach((post)=>{
               publicaciones_to_show.push(post);
             });
+          }else{
+            console.log("Aparentemente la respuesta no coincide con url: "+ response.url);
+            console.log(response);
           }
+        }else{
+          console.log("Aparentemente la respuesta no es JSON");
+          console.log(response);
         }
-        //get publicaciones
-      }else if(response.url==freddit){
-        var frd=format_reddit_data(data);
-        frd.forEach((post)=>{
-          publicaciones_to_show.push(post);
-        });
       }else{
+        console.log("Aparentemente ocurrio un error con: "+ response.url);
         console.log(response);
       }
       show_posts();
@@ -41,7 +53,6 @@ Promise.all(promises)
     console.log("Promesas ROTAS!");
     console.log(error);
   });
-
 
 function format_reddit_data(recived){
     var reddit_response=recived.data.children;
