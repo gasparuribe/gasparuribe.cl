@@ -1,50 +1,53 @@
 const faws = aws_url+'/?action=sobre_mi';
 const freddit = 'https://www.reddit.com/user/gasparuribe/submitted.json';
-//const ffail = 'https://httpstat.us/500';
+const ffail = 'https://httpstat.us/500';
 var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=404";
 var publicaciones_to_show=[];
 const promises = [
-  fetch(faws),
-  fetch(freddit),
-  //fetch(ffail).then(function(responses) {throw Error("aaa")})
+  fetch(faws).catch(function(error) {console.log("Fetch Error for:"+faws); console.log(error);}),
+  fetch(freddit).catch(function(error) {console.log("Fetch Error for:"+freddit); console.log(error);}),
+  //fetch(ffail).catch(function(error) {console.log("Fetch Error for:"+ffail); console.log(error);})
 ];
 Promise.all(promises)
   .then(function(responses) {
     console.log(responses);
     responses.forEach(async (response)=>{
-      if(response.ok){
-        if(response.headers.get('Content-Type').includes('json')){
-          const data = await response.json();
-          if(response.url==faws){
-            if(data.spotify){
-              show_spotify(data.spotify);
-            }
-            if(data.youtube){
-              if(data.youtube.posts){
-                var dyp=data.youtube.posts;
-                dyp.forEach((post)=>{
-                  publicaciones_to_show.push(post);
-                });
+      if(response){
+        if(response.ok){
+          if(response.headers.get('Content-Type').includes('json')){
+            const data = await response.json();
+            if(response.url==faws){
+              if(data.spotify){
+                show_spotify(data.spotify);
               }
+              if(data.youtube){
+                if(data.youtube.posts){
+                  var dyp=data.youtube.posts;
+                  dyp.forEach((post)=>{
+                    publicaciones_to_show.push(post);
+                  });
+                }
+              }
+              //get publicaciones
+            }else if(response.url==freddit){
+              var frd=format_reddit_data(data);
+              frd.forEach((post)=>{
+                publicaciones_to_show.push(post);
+              });
+            }else{
+              console.log("Aparentemente la respuesta no coincide con url: "+ response.url);
+              console.log(response);
             }
-            //get publicaciones
-          }else if(response.url==freddit){
-            var frd=format_reddit_data(data);
-            frd.forEach((post)=>{
-              publicaciones_to_show.push(post);
-            });
           }else{
-            console.log("Aparentemente la respuesta no coincide con url: "+ response.url);
+            console.log("Aparentemente la respuesta no es JSON");
             console.log(response);
           }
         }else{
-          console.log("Aparentemente la respuesta no es JSON");
+          console.log("Aparentemente ocurrio un error con: "+ response.url);
           console.log(response);
         }
-      }else{
-        console.log("Aparentemente ocurrio un error con: "+ response.url);
-        console.log(response);
       }
+
       show_posts();
     });
   })
