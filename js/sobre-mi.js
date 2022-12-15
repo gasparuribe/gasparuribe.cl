@@ -1,67 +1,49 @@
-function handleErrors(response) {
-    if (!response.ok) {
-        throw Error(response.statusText);
-    }
-    return response;
-}
+const faws = aws_url+'/?action=sobre_mi';
+const freddit = 'https://www.reddit.com/user/gasparuribe/submitted.json';
+
 var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=404";
 var publicaciones_to_show=[];
-
-publicaciones_to_show.push(  {
-    'post_id':"youtube-hc-1",
-    'post_img':'https://i.ytimg.com/vi/Ha10rcusar8/hqdefault.jpg',
-    'post_url':'https://www.youtube.com/watch?v=Ha10rcusar8',
-    'post_date':new Date('2020-01-02T21:55:12Z'),
-    'post_title':'Snowboard tranquilo con amigos en El Colorado',
-    'post_in':'y/gasparuribe',
-    'zmdi':'youtube-play',
-    'zmdi_color':'bg-red-red',
-    'post_text':'Amigos y nieve timelapse.',
+const promises = [
+  fetch(faws),
+  fetch(freddit)
+];
+Promise.all(promises)
+  .then(function(responses) {
+    //console.log(responses);
+    responses.forEach(async (response)=>{
+      const data = await response.json();
+      if(response.url==faws){
+        if(data.spotify){
+          show_spotify(data.spotify);
+        }
+        if(data.youtube){
+          if(data.youtube.posts){
+            var dyp=data.youtube.posts;
+            dyp.forEach((post)=>{
+              publicaciones_to_show.push(post);
+            });
+          }
+        }
+        //get publicaciones
+      }else if(response.url==freddit){
+        var frd=format_reddit_data(data);
+        frd.forEach((post)=>{
+          publicaciones_to_show.push(post);
+        });
+      }else{
+        console.log(response);
+      }
+      show_posts();
+    });
+  })
+  .catch(function(error) {
+    // Handle any errors
+    console.log("Promesas ROTAS!");
+    console.log(error);
   });
 
-/* Get Youtube Data */
-var yp_posts={
-                  "kind": "youtube#hardcoded",
-                  "id": {
-                      "kind": "youtube#video",
-                      "videoId": "Ha10rcusar8"
-                  },
-                  "snippet": {
-                      "publishedAt": "2020-01-02T21:55:12Z",
-                      "channelId": "UCROWLUGzdMcvvDYheVZBOUQ",
-                      "title": "Snowboard tranquilo con amigos en El Colorado",
-                      "description": "Amigos y nieve timelapse.",
-                      "thumbnails": {
-                          "default": {
-                              "url": "https://i.ytimg.com/vi/Ha10rcusar8/default.jpg",
-                              "width": 120,
-                              "height": 90
-                          },
-                          "medium": {
-                              "url": "https://i.ytimg.com/vi/Ha10rcusar8/mqdefault.jpg",
-                              "width": 320,
-                              "height": 180
-                          },
-                          "high": {
-                              "url": "https://i.ytimg.com/vi/Ha10rcusar8/hqdefault.jpg",
-                              "width": 480,
-                              "height": 360
-                          }
-                      },
-                      "channelTitle": "Gaspar Uribe",
-                      "liveBroadcastContent": "none",
-                      "publishTime": "2020-01-02T21:55:12Z"
-                  }
-              };
 
-
-
-/* Get Reddit Data */
-async function getRedditJSON(){
-  return fetch('https://www.reddit.com/user/gasparuribe/submitted.json')
-  .then(handleErrors)
-  .then((response) => response.json())
-  .then(function(recived){
+function format_reddit_data(recived){
     var reddit_response=recived.data.children;
     var return_obj=[];
     reddit_forcount=0;
@@ -77,7 +59,7 @@ async function getRedditJSON(){
       }
       if(post.data.media_metadata){
         var postMedia=post.data.media_metadata;
-        console.log(postMedia);
+        //console.log(postMedia);
         var forCount=0;
         Object.keys(postMedia).forEach(key => {
           if(forCount==0){
@@ -105,24 +87,15 @@ async function getRedditJSON(){
         });
     });
     return return_obj;
-  });
 }
 
-
-async function joinPosts(){
-  var reddit_arr = await getRedditJSON();
-  reddit_arr.forEach((post)=>{
-    publicaciones_to_show.push(post);
-  });
-  /* Preparar publicaciones */
-  console.log(publicaciones_to_show);
+function show_posts(){
+  /* Ordenar publicaciones */
   publicaciones_to_show.sort(function(a,b){
     var aa= Date.parse(new Date(a.post_date));
     var bb= Date.parse(new Date(b.post_date));
     return bb - aa;
   });
-  console.log(publicaciones_to_show);
-
   /* Show publicaciones */
   document.getElementById("mixed_posts").innerHTML="";
   if(publicaciones_to_show<1){
@@ -159,54 +132,41 @@ async function joinPosts(){
       document.getElementById("mixed_posts").insertAdjacentHTML('beforeend',html_to_return);
     });
   }
-
-
 }
-joinPosts();
 
-
-
-/* Get and show Spotify Data */
-fetch(aws_url+'?action=spotify_data',)
-    .then(handleErrors)
-    .then((response) => response.json())
-    .then(function(data){
-      //console.log(data);
-      if(data.spotify.playing.is_playing){
-        document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend','<span class="ref-name mb-5 mt-20">'+data.spotify.playing.last_song.song+'</span> - '+data.spotify.playing.last_song.artists);
-      }else{
-        if(data.spotify.playing.last_song){
-          document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend','<span class="ref-name mb-5 mt-20">(pausa)  </span>'+data.spotify.playing.last_song.song+' - '+data.spotify.playing.last_song.artists);
-        }else{
-          document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend',"---nada---");
-        }
+function show_spotify(spotify_data){
+  if(spotify_data.playing.is_playing){
+    document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend','<span class="ref-name mb-5 mt-20">'+spotify_data.playing.last_song.song+'</span> - '+spotify_data.playing.last_song.artists);
+  }else{
+    if(spotify_data.playing.last_song){
+      document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend','<span class="ref-name mb-5 mt-20">(pausa)  </span>'+spotify_data.playing.last_song.song+' - '+spotify_data.playing.last_song.artists);
+    }else{
+      document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend',"---nada---");
+    }
+  }
+  if(spotify_data.top_songs.response=="ok"){
+    var songslist=spotify_data.top_songs.songs;
+    for (const [key, value] of Object.entries(songslist)) {
+      if (value.song){
+        document.getElementById("spotify_top_song").insertAdjacentHTML('beforeend','<li><span class="ref-name mb-5 mt-20">'
+          +value.song+'</span> - '+value.artists+'</li>'
+        );
       }
-      if(data.spotify.top_songs.response=="ok"){
-        var songslist=data.spotify.top_songs.songs;
-        for (const [key, value] of Object.entries(songslist)) {
-          if (value.song){
-            document.getElementById("spotify_top_song").insertAdjacentHTML('beforeend','<li><span class="ref-name mb-5 mt-20">'
-              +value.song+'</span> - '+value.artists+'</li>'
-            );
-          }
-        }
-      }else{
-        document.getElementById("spotify_top_song").insertAdjacentHTML('beforeend',"<li>---nada---</li>");
-      }
-      if(data.spotify.top_artists.response=="ok"){
-        var artistslist=data.spotify.top_artists.artists;
-        for (const [key, value] of Object.entries(artistslist)) {
-          document.getElementById("spotify_top_artists").insertAdjacentHTML('beforeend','<li><span class="ref-name mb-5 mt-20">'
-              +value+'</span></li>'
-          );
-        }
-      }else{
-        document.getElementById("spotify_top_artists").insertAdjacentHTML('beforeend',"<li>---nada---</li>");
-      }
-    })
-.catch(function(err) {
-  console.log("Catch Error: "+err);
-});
+    }
+  }else{
+    document.getElementById("spotify_top_song").insertAdjacentHTML('beforeend',"<li>---nada---</li>");
+  }
+  if(spotify_data.top_artists.response=="ok"){
+    var artistslist=spotify_data.top_artists.artists;
+    for (const [key, value] of Object.entries(artistslist)) {
+      document.getElementById("spotify_top_artists").insertAdjacentHTML('beforeend','<li><span class="ref-name mb-5 mt-20">'
+          +value+'</span></li>'
+      );
+    }
+  }else{
+    document.getElementById("spotify_top_artists").insertAdjacentHTML('beforeend',"<li>---nada---</li>");
+  }
+}
 /* Muestra mi edad de forma dinamica */
 var element_edad=document.getElementById("edad");
 const currentMonth = new Date().getMonth() + 1;
