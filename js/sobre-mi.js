@@ -6,7 +6,7 @@ var publicaciones_to_show=[];
 const promises = [
   fetch(faws),
   fetch(freddit),
-  //fetch(ffail)
+  //fetch(ffail).then(function(responses) {throw Error("aaa")})
 ];
 Promise.all(promises)
   .then(function(responses) {
@@ -52,7 +52,7 @@ Promise.all(promises)
     // Handle any errors
     console.log("Promesas ROTAS!");
     console.log(error);
-    document.getElementById("mixed_posts").innerHTML="Ocurrio un error:"+error;
+    document.getElementById("mixed_posts").innerHTML="<span style=\"padding: 35px;font-size: 18px;\"><h3 style=\"color:red;\">Ocurrio un problema: </h3>"+error+"</span>";
   });
 
 function format_reddit_data(recived){
