@@ -4,9 +4,41 @@ const ffail = 'https://httpstat.us/500';
 var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=404";
 var publicaciones_to_show=[];
 const promises = [
-  fetch(faws).catch(function(error) {console.log("Fetch Error for:"+faws); console.log(error);}),
-  fetch(freddit).catch(function(error) {console.log("Fetch Error for:"+freddit); console.log(error);}),
-  //fetch(ffail).catch(function(error) {console.log("Fetch Error for:"+ffail); console.log(error);})
+  fetch(faws).catch(function(error) {publicaciones_to_show.push({
+      'post_id':"aws-fail",
+      'post_img':"https://via.placeholder.com/460x272?text=500",
+      'post_url':'#',
+      'post_date':error,
+      'post_title':'Problema con AWS',
+      'post_in':'---',
+      'zmdi':'cloud-off',
+      'zmdi_color':'bg-red-dark',
+      'post_text':'No se pudo establecer conexión para obtener información.',
+    });}),
+  fetch(freddit).catch(function(error) {publicaciones_to_show.push({
+      'post_id':"r-fail",
+      'post_img':"https://via.placeholder.com/460x272?text=500",
+      'post_url':'#',
+      'post_date':error,
+      'post_title':'Problema con Reddit',
+      'post_in':'---',
+      'zmdi':'cloud-off',
+      'zmdi_color':'bg-red-dark',
+      'post_text':'No se pudo establecer conexión para obtener información.',
+    });}),
+    /*
+  fetch(ffail).then(function(responses) {throw Error("aaa")}).catch(function(error) {publicaciones_to_show.push({
+      'post_id':"r-fail",
+      'post_img':"https://via.placeholder.com/460x272?text=500",
+      'post_url':'#',
+      'post_date':error,
+      'post_title':'Problema con Test',
+      'post_in':'---',
+      'zmdi':'cloud-off',
+      'zmdi_color':'bg-red-dark',
+      'post_text':'No se pudo establecer conexión para obtener información.',
+    });})
+    */
 ];
 Promise.all(promises)
   .then(function(responses) {
