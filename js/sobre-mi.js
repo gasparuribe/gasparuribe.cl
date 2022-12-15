@@ -52,6 +52,7 @@ Promise.all(promises)
     // Handle any errors
     console.log("Promesas ROTAS!");
     console.log(error);
+    document.getElementById("mixed_posts").innerHTML="Ocurrio un error:"+error;
   });
 
 function format_reddit_data(recived){
