@@ -34,7 +34,7 @@ const promises = [
       'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
       'post_date':'',
-      'post_title':'Problema con Test',
+      'post_title':'Problema Demo',
       'post_in':'---',
       'zmdi':'cloud-off',
       'zmdi_color':'bg-red-dark',
