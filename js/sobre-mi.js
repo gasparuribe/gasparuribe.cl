@@ -8,37 +8,40 @@ const promises = [
       'post_id':"aws-fail",
       'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
-      'post_date':error,
+      'post_date':'',
       'post_title':'Problema con AWS',
       'post_in':'---',
       'zmdi':'cloud-off',
       'zmdi_color':'bg-red-dark',
       'post_text':'No se pudo establecer conexión para obtener información.',
+      'post_error':error
     });}),
   fetch(freddit).catch(function(error) {publicaciones_to_show.push({
       'post_id':"reddit-fail",
       'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
-      'post_date':error,
+      'post_date':'',
       'post_title':'Problema con Reddit',
       'post_in':'---',
       'zmdi':'cloud-off',
       'zmdi_color':'bg-red-dark',
       'post_text':'No se pudo establecer conexión para obtener información.',
+      'post_error':error
     });}),
-    /*
+/*
   fetch(ffail).then(function(responses) {throw Error("aaa")}).catch(function(error) {publicaciones_to_show.push({
       'post_id':"test-fail",
       'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
-      'post_date':error,
+      'post_date':'',
       'post_title':'Problema con Test',
       'post_in':'---',
       'zmdi':'cloud-off',
       'zmdi_color':'bg-red-dark',
       'post_text':'No se pudo establecer conexión para obtener información.',
+      'post_error':error
     });})
-    */
+*/
 ];
 Promise.all(promises)
   .then(function(responses) {
@@ -149,6 +152,13 @@ function show_posts(){
     document.getElementById("mixed_posts").innerHTML="<span style=\"padding: 35px;font-size: 18px;\">El usuario aún no publica, aquí aparecerá cuando lo haga.</span>";
   }else{
     publicaciones_to_show.forEach((post)=>{
+      if(post.post_date){
+        var post_date_raw=new Date(post.post_date);
+        var post_date_to_show=post_date_raw.toLocaleString("es-CL", {timeZone: "America/Santiago"});
+      }
+      if(post.post_error){
+        var post_date_to_show=post.post_error;
+      }
       var post_data="";
       var img_style="background: transparent url(\'"+post.post_img+"\') repeat scroll center center/cover;";
       var html_to_return=""+
@@ -171,7 +181,7 @@ function show_posts(){
       "                  </a>"+
       "                </div>"+
       "                <div class=\"mdl-card__actions mdl-card--border\">"+
-      "                  <span class=\"blog-post-date inline-block\">"+post.post_date.toLocaleString("es-CL", {timeZone: "America/Santiago"})+"</span>"+
+      "                  <span class=\"blog-post-date inline-block\">"+post_date_to_show+"</span>"+
       "                  <div class=\"mdl-layout-spacer\"></div>"+
       "                </div>"+
       "              </div>"+
