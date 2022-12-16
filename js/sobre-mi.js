@@ -1,7 +1,7 @@
 const faws = aws_url+'/?action=sobre_mi';
 const freddit = 'https://www.reddit.com/user/gasparuribe/submitted.json';
 const ffail = 'https://httpstat.us/500';
-var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=404";
+var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=No%20IMG";
 var publicaciones_to_show=[];
 const promises = [
   fetch(faws).catch(function(error) {publicaciones_to_show.push({
@@ -95,6 +95,7 @@ Promise.all(promises)
 
 function format_reddit_data(recived){
     var reddit_response=recived.data.children;
+    console.log(reddit_response);
     var return_obj=[];
     reddit_forcount=0;
     reddit_response.forEach((post)=>{
@@ -109,7 +110,6 @@ function format_reddit_data(recived){
       }
       if(post.data.media_metadata){
         var postMedia=post.data.media_metadata;
-        //console.log(postMedia);
         var forCount=0;
         Object.keys(postMedia).forEach(key => {
           if(forCount==0){
@@ -124,11 +124,16 @@ function format_reddit_data(recived){
       if(post.data.selftext){
         texto=post.data.selftext;
       }
+      var post_edited=false;
+      if(post.data.edited){
+        post_edited=new Date(post.data.edited * 1000);
+      }
       return_obj.push(  {
           'post_id':"r-"+reddit_forcount,
           'post_img':post_thumbnail,
           'post_url':post_url,
           'post_date':new Date(post.data.created_utc * 1000),
+          'post_edit':post_edited,
           'post_title':post.data.title,
           'post_in':post.data.subreddit_name_prefixed,
           'zmdi':'reddit',
@@ -142,9 +147,27 @@ function format_reddit_data(recived){
 function show_posts(){
   /* Ordenar publicaciones */
   publicaciones_to_show.sort(function(a,b){
-    var aa= Date.parse(new Date(a.post_date));
-    var bb= Date.parse(new Date(b.post_date));
-    return bb - aa;
+    if(a.post_edit&&b.post_edit){
+      var aa= Date.parse(new Date(a.post_edit));
+      var bb= Date.parse(new Date(b.post_edit));
+      return bb - aa;
+    }else if(a.post_edit&&!b.post_edit){
+      var aa= Date.parse(new Date(a.post_edit));
+      var bb= Date.parse(new Date(b.post_date));
+      return bb - aa;
+    }else if(!a.post_edit&&b.post_edit){
+      var aa= Date.parse(new Date(a.post_date));
+      var bb= Date.parse(new Date(b.post_edit));
+      return bb - aa;
+    }else if(!a.post_edit&&!b.post_edit){
+      var aa= Date.parse(new Date(a.post_date));
+      var bb= Date.parse(new Date(b.post_date));
+      return bb - aa;
+    }else{
+      var aa= Date.parse(new Date(a.post_date));
+      var bb= Date.parse(new Date(b.post_date));
+      return bb - aa;
+    }
   });
   /* Show publicaciones */
   document.getElementById("mixed_posts").innerHTML="";
@@ -155,6 +178,11 @@ function show_posts(){
       if(post.post_date){
         var post_date_raw=new Date(post.post_date);
         var post_date_to_show=post_date_raw.toLocaleString("es-CL", {timeZone: "America/Santiago"});
+      }
+      if(post.post_edit){
+        var post_edit_raw=new Date(post.post_edit);
+        var post_edit_to_show=post_edit_raw.toLocaleString("es-CL", {timeZone: "America/Santiago"});
+        var post_date_to_show="Editado:<b style=\"font-weight: bold;\">"+post_edit_to_show+"</b><br>Creado: "+post_date_to_show;
       }
       if(post.post_error){
         var post_date_to_show=post.post_error;
