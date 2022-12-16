@@ -6,7 +6,7 @@ var publicaciones_to_show=[];
 const promises = [
   fetch(faws).catch(function(error) {publicaciones_to_show.push({
       'post_id':"aws-fail",
-      'post_img':"https://via.placeholder.com/460x272?text=500",
+      'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
       'post_date':error,
       'post_title':'Problema con AWS',
@@ -16,8 +16,8 @@ const promises = [
       'post_text':'No se pudo establecer conexión para obtener información.',
     });}),
   fetch(freddit).catch(function(error) {publicaciones_to_show.push({
-      'post_id':"r-fail",
-      'post_img':"https://via.placeholder.com/460x272?text=500",
+      'post_id':"reddit-fail",
+      'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
       'post_date':error,
       'post_title':'Problema con Reddit',
@@ -28,8 +28,8 @@ const promises = [
     });}),
     /*
   fetch(ffail).then(function(responses) {throw Error("aaa")}).catch(function(error) {publicaciones_to_show.push({
-      'post_id':"r-fail",
-      'post_img':"https://via.placeholder.com/460x272?text=500",
+      'post_id':"test-fail",
+      'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
       'post_date':error,
       'post_title':'Problema con Test',
