@@ -265,3 +265,6 @@ if(meshoy>=mescumple){
 }else{
   element_edad.innerHTML=anohoy-anocumple-1;
 }
+
+
+console.log(github_get_gallery('lucky'));
