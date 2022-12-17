@@ -41,7 +41,7 @@
                         <div class="col-md-7 col-xs-12">
                           <div class="info-wrap">
                           <div class="mt-0 mb-30"  data-nosnippet>
-                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-yellow  mr-10" style="margin-top: 10px;" href="#">Inicio</a>
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-yellow  mr-10" style="margin-top: 10px;" href="index.html">Inicio</a>
                             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-blueish-dark mr-10" style="margin-top: 10px;" href="experiencia.html">Experiencia</a>
                             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-hotpink " style="margin-top: 10px;" href="sobre-mi.html">Sobre mí</a>
                           </div>
@@ -121,13 +121,14 @@
   });
   if(params.id){
     if(params.id=='lucky'){
-      /* Galeria */
       document.getElementById("post_img").style.background = "url('img/galeria/lucky/lucky8.jpg')";
       document.getElementById("post_img").style.backgroundSize  = "300px";
       document.getElementById("post_img").style.backgroundPosition = "center";
       document.getElementById("post_title").innerHTML  = 'Lucky 2012❤2019';
       document.getElementById("post_date").innerHTML  = 'Publicado el: 19-03-2019 22:57:30';
       document.getElementById("post_text").innerHTML  = 'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor. Una personalidad muy calmada, sin contar cuando quería salir y no podía o las clásicas locuras nocturnas de los gatos.';
+
+        /* Galeria */
       document.getElementById("galeria").style.display = "block";
       document.getElementById("galeria").innerHTML  = '<div class=\"gallery\"></div>';
       github_get_gallery('lucky').then(function(galery_items) {
