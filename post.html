@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Gaspar Uribe</title>
+  <meta name="description" content="Sitio web personal." />
+  <meta name="keywords" content="" />
+  <meta name="author" content="GasparUribe"/>
+
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="icon" href="logo-320x320-1-small.png" sizes="32x32">
+  <link rel="icon" href="logo-320x320-1-small.png" sizes="192x192">
+  <!--CSS-->
+  <link rel="stylesheet" type="text/css" href="css/style.css" />
+</head>
+
+<body id="body" data-ng-app="contactApp">
+
+  	<!--Main Wrapper-->
+  		<div class="main-wrapper">
+  			<!--Bg Image-->
+  			<div class="bg-struct bg-img" style="position: fixed;"></div>
+  			<!--/Bg Image-->
+  			<div class="mdl-js-layout mdl-layout--fixed-header">
+          <!--Main Content-->
+          <div class="main-content relative">
+            <div class="container">
+
+              <!--About Sec-->
+              <section class="about-sec mt-sm-120 " style="margin-top: 50px !important;">
+                <div class="row">
+                  <div class="col-lg-12">
+                    <div class="mdl-card mdl-shadow--2dp">
+                      <div class="row">
+                        <div class="col-md-5 col-xs-12">
+                          <div class="candidate-img" id="post_img" style="background: url('https://via.placeholder.com/372x372?text=No%20IMG');background-size: cover;">
+                          </div>
+                          <!-- Iconos sociales -->
+                        </div>
+                        <div class="col-md-7 col-xs-12">
+                          <div class="info-wrap">
+                          <div class="mt-0 mb-30"  data-nosnippet>
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-yellow  mr-10" style="margin-top: 10px;border-bottom: solid 3px #000;" href="#">Inicio</a>
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-blueish-dark mr-10" style="margin-top: 10px;" href="experiencia.html">Experiencia</a>
+                            <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-hotpink " style="margin-top: 10px;" href="sobre-mi.html">Sobre mí</a>
+                          </div>
+                            <h1 id="post_title" data-nosnippet>Cargando titulo</h1>
+                            <h5 id="post_date" class="mt-0 font-grey"  data-nosnippet>Publicado el: </h5>
+                            <div class="info-wrap mt-15" id="post_text">
+                              Cargando texto...
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
+              <!--/About Sec-->
+              <!--Galeria Sec-->
+              <style>
+                .gallery {
+                  display: flex;
+                  flex-wrap: wrap;
+                  justify-content: space-around;
+                }
+
+                .gallery img{
+                  width: 25%;
+                  height: auto;
+                  object-fit: cover;
+                }
+              </style>
+              <section class="galeria-sec mt-sm-120" id="galeria" style="margin-top: 50px !important;display:none;">
+                <div class="row">
+                  <div class="mdl-card mdl-shadow--2dp">
+                        <div class="info-wrap">
+                          <h1  data-nosnippet>Cargando Galeria, espere...</h1>
+                        </div>
+                  </div>
+                </div>
+              </section>
+              <!--/Galeria Sec-->
+              <!--Footer Sec-->
+              <footer class="footer-sec sec-pad-top-sm sec-pad-bottom text-center">
+                <h6 style="display: inline">¿Quieres saber algo más de mí?</h6> Dime en
+                <a href="index.html#contact_sec" style="color: #3c3cff;">Contacto Rapido.</a>
+                <br>
+                <p class="mt-30">
+                  ¿Quieres saber sobre esta página web?
+                  <a href="sobre-web.html" style="color: #3c3cff;text-decoration: underline;font-size: 95%;">
+                    aquí
+                  </a>.
+                </p>
+              </footer>
+              <!--Footer Sec-->
+  					</div>
+  				</div>
+  				<!--/Main Content-->
+  			</div>
+        <noscript><div id="warning_compatibility" style="position:fixed;bottom:0px;background-color:red;color:#000;min-height:40px;font-size:180%;width:100%;text-align:center;"> <i class="zmdi zmdi-alert-triangle" style="color:yellow;font-size:150%;"></i>Tu navegador no es compatible con JavaScript</div></noscript>
+  		</div>
+  		<!--/Main Wrapper-->
+
+      <script type="text/javascript" src="js_theme/jquery-1.12.4.min.js" id="my-scripts-jquery-js"></script>
+
+      <script type="text/javascript" src="js/main.js" id="main-js"></script>
+      <script type="text/javascript" src="js/hotjar.js" id="hotjar-js"></script>
+<script>
+  const params = new Proxy(new URLSearchParams(window.location.search), {/* https://stackoverflow.com/a/901144 */
+    get: (searchParams, prop) => searchParams.get(prop),
+  });
+  if(params.id){
+    if(params.id=='lucky'){
+      /* Galeria */
+      document.getElementById("post_img").style.background = "url('img/galeria/lucky/lucky8.jpg')";
+      document.getElementById("post_img").style.backgroundSize  = "300px";
+      document.getElementById("post_img").style.backgroundPosition = "center";
+      document.getElementById("post_title").innerHTML  = 'Lucky 2012❤2019';
+      document.getElementById("post_date").innerHTML  = 'Publicado el: 19-03-2019 22:57:30';
+      document.getElementById("post_text").innerHTML  = 'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor. Una personalidad muy calmada, sin contar cuando quería salir y no podía o las clásicas locuras nocturnas de los gatos.';
+      document.getElementById("galeria").style.display = "block";
+      document.getElementById("galeria").innerHTML  = '<div class=\"gallery\"></div>';
+      github_get_gallery('lucky').then(function(galery_items) {
+        console.log(galery_items);
+        galery_items.forEach(image => {
+            const imgElement = document.createElement('img');
+            imgElement.src = "https://gasparuribe.cl/img/galeria/lucky/"+image.name;
+            document.getElementById("galeria").getElementsByClassName( 'gallery' )[0].appendChild(imgElement);
+          });
+      });
+
+    }
+  }
+
+</script>
+
+</body>
+</html>

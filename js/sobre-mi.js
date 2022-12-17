@@ -3,6 +3,17 @@ const freddit = 'https://www.reddit.com/user/gasparuribe/submitted.json';
 const ffail = 'https://httpstat.us/500';
 var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=No%20IMG";
 var publicaciones_to_show=[];
+publicaciones_to_show.push({
+    'post_id':"custom-hc-lucky",
+    'post_img':"img/galeria/lucky/lucky8.jpg",
+    'post_url':'post.html?id=lucky',
+    'post_date':'2019-03-19T22:57:30Z',
+    'post_title':'Lucky 2012❤2019',
+    'post_in':'Esta web',
+    'zmdi':'favorite',
+    'zmdi_color':'bg-hotpink',
+    'post_text':'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor...'
+  });
 const promises = [
   fetch(faws).catch(function(error) {publicaciones_to_show.push({
       'post_id':"aws-fail",
@@ -159,14 +170,16 @@ function show_posts(){
       var aa= Date.parse(new Date(a.post_date));
       var bb= Date.parse(new Date(b.post_edit));
       return bb - aa;
-    }else if(!a.post_edit&&!b.post_edit){
-      var aa= Date.parse(new Date(a.post_date));
-      var bb= Date.parse(new Date(b.post_date));
-      return bb - aa;
-    }else{
-      var aa= Date.parse(new Date(a.post_date));
-      var bb= Date.parse(new Date(b.post_date));
-      return bb - aa;
+    }else{//if(!a.post_edit&&!b.post_edit)
+      if(a.post_date&&b.post_date){
+        var aa= Date.parse(new Date(a.post_date));
+        var bb= Date.parse(new Date(b.post_date));
+        return bb - aa;
+      }else if(a.post_date&&!b.post_date){
+        return true;
+      }else{
+        return false;
+      }
     }
   });
   /* Show publicaciones */
@@ -265,6 +278,3 @@ if(meshoy>=mescumple){
 }else{
   element_edad.innerHTML=anohoy-anocumple-1;
 }
-
-
-console.log(github_get_gallery('lucky'));

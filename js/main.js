@@ -18,8 +18,9 @@ function isjson(item){
    }
    return false;
 }
-function github_get_gallery(path){
-  return fetch('https://api.github.com/repos/gasparuribe/gasparuribe.cl/contents/img/galeria'+path)
+
+function github_get_gallery(path){  
+  return fetch('https://api.github.com/repos/gasparuribe/gasparuribe.cl/contents/img/galeria/'+path)
     .catch(function(error) {
       // Handle any errors
       console.log("FUCKHUB!");
