@@ -116,7 +116,7 @@
       <script type="text/javascript" src="js/main.js" id="main-js"></script>
       <script type="text/javascript" src="js/hotjar.js" id="hotjar-js"></script>
 <script>
-  const params = new Proxy(new URLSearchParams(window.location.search), {/* https://stackoverflow.com/a/901144 */
+  const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
   });
   if(params.id){
