@@ -5,38 +5,41 @@ var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=No
 var publicaciones_to_show=[];
 publicaciones_to_show.push({
     'post_id':"custom-hc-lucky",
-    'post_img':"img/galeria/lucky/lucky8.jpg",
+    'post_img':"img/galeria/lucky/a_1_by_unknow.jpg",
     'post_url':'post.html?id=lucky',
+    'post_target':'',
     'post_date':'2019-03-19T22:57:30Z',
     'post_title':'Lucky 2012❤2019',
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
-    'post_text':'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor...'
+    'post_excerpt':'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor...'
   });
 const promises = [
   fetch(faws).catch(function(error) {publicaciones_to_show.push({
       'post_id':"aws-fail",
       'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
+      'post_target':'',
       'post_date':'',
       'post_title':'Problema con AWS',
       'post_in':'---',
       'zmdi':'cloud-off',
       'zmdi_color':'bg-red-dark',
-      'post_text':'No se pudo establecer conexión para obtener información.',
+      'post_excerpt':'No se pudo establecer conexión para obtener información.',
       'post_error':error
     });}),
   fetch(freddit).catch(function(error) {publicaciones_to_show.push({
       'post_id':"reddit-fail",
       'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
+      'post_target':'',
       'post_date':'',
       'post_title':'Problema con Reddit',
       'post_in':'---',
       'zmdi':'cloud-off',
       'zmdi_color':'bg-red-dark',
-      'post_text':'No se pudo establecer conexión para obtener información.',
+      'post_excerpt':'No se pudo establecer conexión para obtener información.',
       'post_error':error
     });}),
 /*
@@ -44,12 +47,13 @@ const promises = [
       'post_id':"test-fail",
       'post_img':"https://via.placeholder.com/460x272?text=Oh%20NO%21",
       'post_url':'#',
+      'post_target':'',
       'post_date':'',
       'post_title':'Problema Demo',
       'post_in':'---',
       'zmdi':'cloud-off',
       'zmdi_color':'bg-red-dark',
-      'post_text':'No se pudo establecer conexión para obtener información.',
+      'post_excerpt':'No se pudo establecer conexión para obtener información.',
       'post_error':error
     });})
 */
@@ -143,13 +147,14 @@ function format_reddit_data(recived){
           'post_id':"r-"+reddit_forcount,
           'post_img':post_thumbnail,
           'post_url':post_url,
+          'post_target':'_blank',
           'post_date':new Date(post.data.created_utc * 1000),
           'post_edit':post_edited,
           'post_title':post.data.title,
           'post_in':post.data.subreddit_name_prefixed,
           'zmdi':'reddit',
           'zmdi_color':'bg-orange',
-          'post_text':texto,
+          'post_excerpt':texto,
         });
     });
     return return_obj;
@@ -207,17 +212,17 @@ function show_posts(){
       "              <div class=\"col-sm-4 mb-30\" style=\"width: 300px;\">"+
       "              <div class=\"mdl-card mdl-shadow--2dp pa-0\">"+
       "                <div class=\"mdl-card__title pa-0\">"+
-      "                  <a target=\"_blank\" href=\""+post.post_url+"\">"+
+      "                  <a target=\""+post.post_target+"\" href=\""+post.post_url+"\">"+
       "                    <div class=\"blog-img blog-1\" style=\""+img_style+"height: 150px;\"></div>"+
       "                  </a>"+
       "                </div>"+
       "                <div class=\"mdl-card__supporting-text relative\" style=\"padding-bottom: 10px;\">"+
       "                  <span class=\"blog-cat\"><b>Posted in:</b> "+post.post_in+"</span>"+
-      "                  <a target=\"_blank\" href=\""+post.post_url+"\">"+
+      "                  <a target=\""+post.post_target+"\" href=\""+post.post_url+"\">"+
       "                    <h4 class=\"mt-15 mb-10\">"+post.post_title+"</h4>"+
       "                  </a>"+
-      "                  <p>"+post.post_text+"</p>"+
-      "                  <a target=\"_blank\" href=\""+post.post_url+"\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect "+post.zmdi_color+" mdl-shadow--8dp\">"+
+      "                  <p>"+post.post_excerpt+"</p>"+
+      "                  <a target=\""+post.post_target+"\" href=\""+post.post_url+"\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect "+post.zmdi_color+" mdl-shadow--8dp\">"+
       "                    <i class=\"zmdi zmdi-"+post.zmdi+"\" style=\"font-size: 35px;margin-left: -7px;\"></i>"+
       "                  </a>"+
       "                </div>"+
