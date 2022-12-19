@@ -2034,7 +2034,7 @@ blockquote {
   transform: rotate(360deg);
 }
 .imgspinzoom > img{
-  transition: transform 3s cubic-bezier(0.13, 0.34, 0.59, 0.71);
+  transition: transform 1s cubic-bezier(0.13, 0.34, 0.59, 0.71);
 }
 .imgspinzoom:hover > img{
   position: relative;z-index: 1;

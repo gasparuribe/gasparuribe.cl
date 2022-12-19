@@ -137,7 +137,7 @@ function format_reddit_data(recived){
       }
       var texto="";
       if(post.data.selftext){
-        texto=post.data.selftext;
+        texto=post.data.selftext.slice(0, 130);;//
       }
       var post_edited=false;
       if(post.data.edited){
