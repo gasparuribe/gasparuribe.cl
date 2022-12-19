@@ -43,5 +43,45 @@ if(params.id){
           document.getElementById("galeria").getElementsByClassName( 'gallery' )[0].appendChild(imgElement);
         });
     });
+  }else if(params.id=='nami'){
+    document.getElementById("post_img").style.background = "url('img/galeria/nami/IMG-20210926-WA0000.jpg')";
+    document.getElementById("post_img").style.backgroundSize  = "300px";
+    document.getElementById("post_img").style.backgroundPosition = "center";
+    document.getElementById("post_title").innerHTML  = 'Nami 2021❤';
+    document.getElementById("post_date").innerHTML  = 'Publicado el: 15-06-2021 17:27:15';
+    //document.getElementById("post_edit").innerHTML  = 'Editado el: 19-03-2019 20:24:33';
+    document.getElementById("post_excerpt").innerHTML  = 'Nami Ñami Chuletas';
+
+      /* Galeria */
+    document.getElementById("galeria").style.display = "block";
+    document.getElementById("galeria").innerHTML  = '<div class=\"gallery\"></div>';
+    github_get_gallery('nami').then(function(galery_items) {
+      console.log(galery_items);
+      galery_items.forEach(image => {
+          const imgElement = document.createElement('img');
+          imgElement.src = "https://gasparuribe.cl/img/galeria/nami/"+image.name;
+          document.getElementById("galeria").getElementsByClassName( 'gallery' )[0].appendChild(imgElement);
+        });
+    });
+  }else if(params.id=='katara_nami'){
+    document.getElementById("post_img").style.background = "url('img/galeria/katara_nami/katara-y-nami.jpg')";
+    document.getElementById("post_img").style.backgroundSize  = "300px";
+    document.getElementById("post_img").style.backgroundPosition = "center";
+    document.getElementById("post_title").innerHTML  = 'Galeria Katara y Nami ❤';
+    document.getElementById("post_date").innerHTML  = 'Publicado el: 19-012-2022 17:27:15';
+    //document.getElementById("post_edit").innerHTML  = 'Editado el: 19-03-2019 20:24:33';
+    document.getElementById("post_excerpt").innerHTML  = '';
+
+      /* Galeria */
+    document.getElementById("galeria").style.display = "block";
+    document.getElementById("galeria").innerHTML  = '<div class=\"gallery\"></div>';
+    github_get_gallery('katara_nami').then(function(galery_items) {
+      console.log(galery_items);
+      galery_items.forEach(image => {
+          const imgElement = document.createElement('img');
+          imgElement.src = "https://gasparuribe.cl/img/galeria/katara_nami/"+image.name;
+          document.getElementById("galeria").getElementsByClassName( 'gallery' )[0].appendChild(imgElement);
+        });
+    });
   }
 }
