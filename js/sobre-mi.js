@@ -22,12 +22,25 @@ publicaciones_to_show.push({
     'post_url':'post.html?id=katara',
     'post_target':'',
     'post_date':'2020-06-15T20:27:15Z',
-    'post_edit':'2022-06-05T14:12:14Z',
+    'post_edit':'2022-12-08T14:12:14Z',
     'post_title':'Katara 2020❤',
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
     'post_excerpt':'Katara Luna nació en marzo del 2020 y la adopte en mayo. El primer año vivió acompañándome en la casa de mi ...'
+  });
+publicaciones_to_show.push({
+    'post_id':"custom-hc-nami",
+    'post_img':"img/galeria/nami/IMG-20210926-WA0000.jpg",
+    'post_url':'post.html?id=nami',
+    'post_target':'',
+    'post_date':'2021-09-27T16:57:42Z',
+    //'post_edit':'2022-06-05T14:12:14Z',
+    'post_title':'Nami 2021❤',
+    'post_in':'Esta web',
+    'zmdi':'favorite',
+    'zmdi_color':'bg-hotpink',
+    'post_excerpt':'Nami Ñami Chuletas...'
   });
 
 
