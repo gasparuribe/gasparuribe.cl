@@ -45,10 +45,11 @@
                             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-blueish-dark mr-10" style="margin-top: 10px;" href="experiencia.html">Experiencia</a>
                             <a class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect font-white bg-hotpink " style="margin-top: 10px;" href="sobre-mi.html">Sobre mí</a>
                           </div>
-                            <h1 id="post_title" data-nosnippet>Cargando o no existe titulo</h1>
-                            <h5 id="post_date" class="mt-0 font-grey"  data-nosnippet>Publicado el: ----------</h5>
+                            <h1 id="post_title" data-nosnippet>Cargando o no existe</h1>
+                            <h5 id="post_edit" class="mt-0 font-grey"  data-nosnippet></h5>
+                            <h5 id="post_date" class="mt-0 font-grey"  data-nosnippet></h5>
                             <div class="info-wrap mt-15" id="post_excerpt">
-                              Cargando o no existe resumen...
+
                             </div>
                           </div>
                         </div>
@@ -114,35 +115,8 @@
       <script type="text/javascript" src="js_theme/jquery-1.12.4.min.js" id="my-scripts-jquery-js"></script>
 
       <script type="text/javascript" src="js/main.js" id="main-js"></script>
+      <script type="text/javascript" src="js/post.js" id="post-js"></script>
       <script type="text/javascript" src="js/hotjar.js" id="hotjar-js"></script>
-<script>
-  const params = new Proxy(new URLSearchParams(window.location.search), {
-    get: (searchParams, prop) => searchParams.get(prop),
-  });
-  if(params.id){
-    if(params.id=='lucky'){
-      document.getElementById("post_img").style.background = "url('img/galeria/lucky/a_1_by_unknow.jpg')";
-      document.getElementById("post_img").style.backgroundSize  = "300px";
-      document.getElementById("post_img").style.backgroundPosition = "center";
-      document.getElementById("post_title").innerHTML  = 'Lucky 2012❤2019';
-      document.getElementById("post_date").innerHTML  = 'Publicado el: 19-03-2019 22:57:30';
-      document.getElementById("post_excerpt").innerHTML  = 'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor. Una personalidad muy calmada, sin contar cuando quería salir y no podía o las clásicas locuras nocturnas de los gatos.';
-
-        /* Galeria */
-      document.getElementById("galeria").style.display = "block";
-      document.getElementById("galeria").innerHTML  = '<div class=\"gallery\"></div>';
-      github_get_gallery('lucky').then(function(galery_items) {
-        console.log(galery_items);
-        galery_items.forEach(image => {
-            const imgElement = document.createElement('img');
-            imgElement.src = "https://gasparuribe.cl/img/galeria/lucky/"+image.name;
-            document.getElementById("galeria").getElementsByClassName( 'gallery' )[0].appendChild(imgElement);
-          });
-      });
-
-    }
-  }
-</script>
 
 </body>
 </html>

@@ -8,8 +8,9 @@ publicaciones_to_show.push({
     'post_img':"img/galeria/lucky/a_1_by_unknow.jpg",
     'post_url':'post.html?id=lucky',
     'post_target':'',
-    'post_date':'2019-03-19T22:57:30Z',
-    'post_title':'Lucky 2012❤2019',
+    'post_date':'2013-02-10T19:57:30Z',
+    'post_edit':'2019-03-19T23:24:33Z',
+    'post_title':'Lucky 2013❤2019',
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
@@ -163,15 +164,15 @@ function format_reddit_data(recived){
 function show_posts(){
   /* Ordenar publicaciones */
   publicaciones_to_show.sort(function(a,b){
-    if(a.post_edit&&b.post_edit){
+    if(a.post_edit&&b.post_edit&&a.post_date&&b.post_date){
       var aa= Date.parse(new Date(a.post_edit));
       var bb= Date.parse(new Date(b.post_edit));
       return bb - aa;
-    }else if(a.post_edit&&!b.post_edit){
+    }else if(a.post_edit&&!b.post_edit&&a.post_date&&b.post_date){
       var aa= Date.parse(new Date(a.post_edit));
       var bb= Date.parse(new Date(b.post_date));
       return bb - aa;
-    }else if(!a.post_edit&&b.post_edit){
+    }else if(!a.post_edit&&b.post_edit&&a.post_date&&b.post_date){
       var aa= Date.parse(new Date(a.post_date));
       var bb= Date.parse(new Date(b.post_edit));
       return bb - aa;
