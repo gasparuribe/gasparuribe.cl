@@ -16,6 +16,22 @@ publicaciones_to_show.push({
     'zmdi_color':'bg-hotpink',
     'post_excerpt':'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor...'
   });
+publicaciones_to_show.push({
+    'post_id':"custom-hc-katara",
+    'post_img':"img/galeria/katara/IMG_0011.jpg",
+    'post_url':'post.html?id=katara',
+    'post_target':'',
+    'post_date':'2020-06-15T20:27:15Z',
+    'post_edit':'2022-06-05T14:12:14Z',
+    'post_title':'Katara 2020❤',
+    'post_in':'Esta web',
+    'zmdi':'favorite',
+    'zmdi_color':'bg-hotpink',
+    'post_excerpt':'Katara Luna nació en marzo del 2020 y la adopte en mayo. El primer año vivió acompañándome en la casa de mi ...'
+  });
+
+
+
 const promises = [
   fetch(faws).catch(function(error) {publicaciones_to_show.push({
       'post_id':"aws-fail",
@@ -138,7 +154,7 @@ function format_reddit_data(recived){
       }
       var texto="";
       if(post.data.selftext){
-        texto=post.data.selftext.slice(0, 130);;//
+        texto=post.data.selftext;//
       }
       var post_edited=false;
       if(post.data.edited){
@@ -222,7 +238,7 @@ function show_posts(){
       "                  <a target=\""+post.post_target+"\" href=\""+post.post_url+"\">"+
       "                    <h4 class=\"mt-15 mb-10\">"+post.post_title+"</h4>"+
       "                  </a>"+
-      "                  <p>"+post.post_excerpt+"</p>"+
+      "                  <p>"+post.post_excerpt.slice(0, 130)+"</p>"+
       "                  <a target=\""+post.post_target+"\" href=\""+post.post_url+"\" class=\"mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect "+post.zmdi_color+" mdl-shadow--8dp\">"+
       "                    <i class=\"zmdi zmdi-"+post.zmdi+"\" style=\"font-size: 35px;margin-left: -7px;\"></i>"+
       "                  </a>"+

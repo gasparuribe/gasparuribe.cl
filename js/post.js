@@ -24,9 +24,9 @@ if(params.id){
     });
 
   }else if(params.id=='katara'){
-    //document.getElementById("post_img").style.background = "url('img/galeria/lucky/a_1_by_unknow.jpg')";
-    //document.getElementById("post_img").style.backgroundSize  = "300px";
-    //document.getElementById("post_img").style.backgroundPosition = "center";
+    document.getElementById("post_img").style.background = "url('img/galeria/katara/IMG_0011.jpg')";
+    document.getElementById("post_img").style.backgroundSize  = "300px";
+    document.getElementById("post_img").style.backgroundPosition = "center";
     document.getElementById("post_title").innerHTML  = 'Katara 2020❤';
     document.getElementById("post_date").innerHTML  = 'Publicado el: 15-06-2020 17:27:15';
     //document.getElementById("post_edit").innerHTML  = 'Editado el: 19-03-2019 20:24:33';
