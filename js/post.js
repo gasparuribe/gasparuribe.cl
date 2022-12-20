@@ -1,7 +1,7 @@
 if(!publicaciones_to_show){
     var publicaciones_to_show=[];
     document.getElementById("post_img").style.background = "url('https://via.placeholder.com/460x272?text=Fail%20Sorry')";
-    document.getElementById("post_img").style.backgroundSize  = "300px";
+    document.getElementById("post_img").style.backgroundSize  = "100%";
     document.getElementById("post_img").style.backgroundPosition = "center";
     document.getElementById("post_title").innerHTML  = 'Error de recurso';
     document.getElementById("post_date").innerHTML  ="Publicado el: "+new Date().toLocaleString("es-CL", {timeZone: "America/Santiago"});
@@ -25,7 +25,7 @@ if(!publicaciones_to_show){
           }
           if(post.post_img){
             document.getElementById("post_img").style.background = "url('"+post.post_img+"')";
-            document.getElementById("post_img").style.backgroundSize  = "300px";
+            document.getElementById("post_img").style.backgroundSize  = "100%";
             document.getElementById("post_img").style.backgroundPosition = "center";
           }
           if(post.post_excerpt){
@@ -33,7 +33,7 @@ if(!publicaciones_to_show){
           }
           if(post.post_text){
             document.getElementById("post_text").style.display = "block";
-            document.getElementById("post_text").innerHTML  =  "<div class=\"row\"><div class=\"mdl-card mdl-shadow--2dp\"><div class=\"info-wrap\">"+ post.post_text+"</div></div></div>";
+            document.getElementById("post_text").innerHTML  =  post.post_text;
           }
           if(post.post_galeria){
             /* Galeria */
@@ -48,6 +48,29 @@ if(!publicaciones_to_show){
                 });
             });
           }
+
+          /* Funcionalidad exclusiva para el disply del post */
+          if(params.id=='esta_web'){
+            var post_img_div=document.getElementById("post_img");
+            const h2Element = document.createElement('h2');
+            h2Element.innerHTML  = 'Om Nom Nom Ñom';
+            post_img_div.parentNode.style.textAlign='center';
+            post_img_div.parentNode.insertBefore(h2Element, post_img_div.nextSibling);
+            fetch('https://api.github.com/users/gasparuribe/repos')
+            .catch(function(error) {
+              console.log("Github fetch fail");
+              console.log(error);
+            })
+            .then((response) => response.json())
+            .then(function(repos) {
+              repos.forEach((repo)=>{
+                if (repo.name == "gasparuribe.cl"){
+                  document.getElementById("gh_repo_date").innerHTML=new Date(repo.pushed_at).toLocaleString("es-CL", {timeZone: "America/Santiago"});//repo.updated_at
+                }
+              });
+            });
+          }
+          /* Fin de Funcionalidad exclusiva para el disply del post */
         }
       });
 
