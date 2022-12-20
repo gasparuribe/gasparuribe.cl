@@ -148,7 +148,7 @@ function format_reddit_data(recived){
         post_edited=new Date(post.data.edited * 1000);
       }
       return_obj.push(  {
-          'post_id':"r-"+reddit_forcount,
+          'post_id':"r-"+post.data.id,
           'post_img':post_thumbnail,
           'post_url':post_url,
           'post_target':'_blank',
@@ -175,8 +175,7 @@ function filter_posts_by_id(array,id_to_filter){
 
 function show_posts(){
   /* Ordenar publicaciones */
-  const id_to_filter=['arte_dani','katara_nami'];
-  publicaciones_to_show=filter_posts_by_id(publicaciones_to_show,id_to_filter);
+  publicaciones_to_show=filter_posts_by_id(publicaciones_to_show,['arte_dani','katara_nami']);
   publicaciones_to_show.sort(function(a,b){
     if(a.post_edit&&b.post_edit&&a.post_date&&b.post_date){
       var aa= Date.parse(new Date(a.post_edit));
