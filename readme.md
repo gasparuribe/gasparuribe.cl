@@ -1,1 +1,3 @@
 Este es el sitio web https://gasparuribe.cl
+El codigo esta algo desordenado...
+Puedes leer mas de este proyecto aqui: https://gasparuribe.cl/post.html?id=esta_web

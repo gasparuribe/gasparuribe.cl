@@ -16,7 +16,7 @@ var sobre_esta_web_text=`
           <li><h6>NIC Chile</h6> Gestor de dominios .cl</li>
           <li><h6>Cloudflare</h6> Host para configuraciones DNS</li>
           <li>
-            <h6>GitHub Pages</h6>
+            <h6 style="display: inline;">GitHub Pages</h6> <a target="_blank" href="https://github.com/gasparuribe/gasparuribe.cl" style="color: #3c3cff;text-decoration: underline;font-size: 85%;" rel="nofollow">(Ver Codigo)</a><br>
             Host para frontend (img,html,js,css,...)
             <br>
             Ultimo cambio: <span id="gh_repo_date" style="font-size:90%;"></span>
