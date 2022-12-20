@@ -1,50 +1,25 @@
+
+if(!publicaciones_to_show){
+  var publicaciones_to_show=[];
+  publicaciones_to_show.push({
+      'post_id':"fail-posts-get",
+      'post_img':"https://via.placeholder.com/460x272?text=Fail%20Sorry",
+      'post_url':'#',
+      'post_target':'',
+      'post_date': new Date,
+      //'post_edit':'',
+      'post_title':'Fail with Posts',
+      'post_in':'----',
+      'zmdi':'cloud-off',
+      'zmdi_color':'bg-red-dark',
+      'post_excerpt':'Aparentemente no se cargo archivo de publicaciones'
+    });
+}
+
 const faws = aws_url+'/?action=sobre_mi';
 const freddit = 'https://www.reddit.com/user/gasparuribe/submitted.json';
 const ffail = 'https://httpstat.us/500';
 var publicaciones_default_tuhmbnail="https://via.placeholder.com/460x272?text=No%20IMG";
-var publicaciones_to_show=[];
-publicaciones_to_show.push({
-    'post_id':"custom-hc-lucky",
-    'post_img':"img/galeria/lucky/a_1_by_unknow.jpg",
-    'post_url':'post.html?id=lucky',
-    'post_target':'',
-    'post_date':'2013-02-10T19:57:30Z',
-    'post_edit':'2019-03-19T23:24:33Z',
-    'post_title':'Lucky 2013❤2019',
-    'post_in':'Esta web',
-    'zmdi':'favorite',
-    'zmdi_color':'bg-hotpink',
-    'post_excerpt':'Lo extraño mucho, era muy buen gato. Entendía algunas cosas y muy regalón si lo pillabas de buen humor...'
-  });
-publicaciones_to_show.push({
-    'post_id':"custom-hc-katara",
-    'post_img':"img/galeria/katara/IMG_0011.jpg",
-    'post_url':'post.html?id=katara',
-    'post_target':'',
-    'post_date':'2020-06-15T20:27:15Z',
-    'post_edit':'2022-12-08T14:12:14Z',
-    'post_title':'Katara 2020❤',
-    'post_in':'Esta web',
-    'zmdi':'favorite',
-    'zmdi_color':'bg-hotpink',
-    'post_excerpt':'Katara Luna nació en marzo del 2020 y la adopte en mayo. El primer año vivió acompañándome en la casa de mi ...'
-  });
-publicaciones_to_show.push({
-    'post_id':"custom-hc-nami",
-    'post_img':"img/galeria/nami/IMG-20210926-WA0000.jpg",
-    'post_url':'post.html?id=nami',
-    'post_target':'',
-    'post_date':'2021-09-27T16:57:42Z',
-    //'post_edit':'2022-06-05T14:12:14Z',
-    'post_title':'Nami 2021❤',
-    'post_in':'Esta web',
-    'zmdi':'favorite',
-    'zmdi_color':'bg-hotpink',
-    'post_excerpt':'Nami Ñami Chuletas...'
-  });
-
-
-
 const promises = [
   fetch(faws).catch(function(error) {publicaciones_to_show.push({
       'post_id':"aws-fail",
@@ -135,7 +110,6 @@ Promise.all(promises)
     // Handle any errors
     console.log("Promesas ROTAS!");
     console.log(error);
-    document.getElementById("mixed_posts").innerHTML="<span style=\"padding: 35px;font-size: 18px;\"><h3 style=\"color:red;\">Ocurrio un problema: </h3>"+error+"</span>";
   });
 
 function format_reddit_data(recived){
@@ -189,9 +163,20 @@ function format_reddit_data(recived){
     });
     return return_obj;
 }
+function filter_posts_by_id(array,id_to_filter){
+  id_to_filter.forEach((id)=>{
+    const objWithIdIndex = array.findIndex((obj) => obj.post_id === id);
+    if (objWithIdIndex > -1) {
+      array.splice(objWithIdIndex, 1);
+    }
+  });
+  return array;
+}
 
 function show_posts(){
   /* Ordenar publicaciones */
+  const id_to_filter=['arte_dani','katara_nami'];
+  publicaciones_to_show=filter_posts_by_id(publicaciones_to_show,id_to_filter);
   publicaciones_to_show.sort(function(a,b){
     if(a.post_edit&&b.post_edit&&a.post_date&&b.post_date){
       var aa= Date.parse(new Date(a.post_edit));
