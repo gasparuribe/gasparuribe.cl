@@ -59,6 +59,13 @@ var sobre_esta_web_text=`
     </div>
   </div>
 </div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="mdl-card mdl-shadow--2dp mb-30">
+        En el pasado el sitio estaba construido sobre Wordpress PHP, pero a finales del 2021 decidí cambiar el sitio a lo que es actualmente. Aún me falta mucho por ordenar, contenido y nuevas características, pero poco a poco...
+        </div>
+    </div>
+</div>
 `;
 var publicaciones_to_show=[
   {
