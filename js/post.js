@@ -8,6 +8,34 @@ if(!publicaciones_to_show){
     document.getElementById("post_edit").innerHTML  = '';
     document.getElementById("post_excerpt").innerHTML  = 'Aparentemente no se cargo archivo de publicaciones';
 }else{
+  /*
+  fetch(aws_url+'/?action=posts')
+  .then(function(response) {
+    return response.json();
+  })
+  .then(function(response) {
+    console.log("responses");
+    console.log(response);
+    if(response.posts){
+      var dyp=response.posts;
+      dyp.forEach((post)=>{
+        console.log(post);
+        publicaciones_to_show.push(post);
+      });
+    }
+
+  })
+  .catch(function(error) {
+    document.getElementById("post_img").style.background = "url('https://via.placeholder.com/460x272?text=AWS%20Fail')";
+    document.getElementById("post_img").style.backgroundSize  = "100%";
+    document.getElementById("post_img").style.backgroundPosition = "center";
+    document.getElementById("post_title").innerHTML  = 'Error de recurso';
+    document.getElementById("post_date").innerHTML  ="Publicado el: "+new Date().toLocaleString("es-CL", {timeZone: "America/Santiago"});
+    document.getElementById("post_edit").innerHTML  = '';
+    document.getElementById("post_excerpt").innerHTML  = error;
+  });
+*/
+
   const params = new Proxy(new URLSearchParams(window.location.search), {
     get: (searchParams, prop) => searchParams.get(prop),
   });
