@@ -69,40 +69,56 @@ var sobre_esta_web_text=`
 `;
 var juegos_me_gustan=`
 <div class="row">
+    <div class="col-sm-6 mb-30">
+      <div class="mdl-card mdl-shadow--2dp mb-30">
+        <h2>Lista</h2>
+        <ul style="list-style: inside;">
+        <li>Splitgate</li>
+        <li>PlayerUnknown&#39;s Battlegrounds (PUBG PC)</li>
+        <li>Ajedrez</li>
+        <li>RealmRoyale</li>
+        <li>OverWatch</li>
+        <li>Paladins</li>
+        <li>Minimotorways</li>
+        <li>Rust</li>
+        <li>Left 4 Dead 2</li>
+        <li>Uno</li>
+        <li>Catan Universe</li>
+        <li>Super Smash Bros</li>
+        <li>Multiversus</li>
+        <li>StarCraft</li>
+        <li>Diablo 3</li>
+        <li>Minecraft</li>
+        <li>Portals</li>
+        <li>Team Fortress 2</li>
+        <li>Worms Armageddon</li>
+        <li>Unreal Tournament 3</li>
+        <li>Unreal Tournament 2004</li>
+        <li>Lineage 2</li>
+        <li>Age Of Mythology: The Titans Expansion</li>
+        <li>Counter-Strike 1.6</li> <li>Unreal Tournament</li>
+        <li>Tibia</li>
+        <li>Diablo 2 Expansion</li>
+        <li>Super Mario World</li>
+        <li>Cartas Mitos y Leyenda</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-6 mb-30">
+      <div class="mdl-card mdl-shadow--2dp mb-30">
+        <p>Rara vez grabo y mi habilidad no destaca de forma positiva, pero de todas formas les comparto estos videos seleccionados.</p>
+      </div>
+      <div class="mdl-card mdl-shadow--2dp mb-30">
+        <h2>Playlist de Gameplay</h2>
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=PLnZnMBzLxULACdKl3Y_Yey1JHbgYUis_F"
+        title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+</div>
+<div class="row">
     <div class="col-lg-12">
         <div class="mdl-card mdl-shadow--2dp mb-30">
-            <p>Modo Lista:</p>
-            <ul style="list-style: inside;"> <li>Splitgate</li>
-            <li>PlayerUnknown&#39;s Battlegrounds (PUBG PC)</li>
-            <li>Ajedrez</li>
-            <li>RealmRoyale</li>
-            <li>OverWatch</li>
-            <li>Paladins</li>
-            <li>Minimotorways</li>
-            <li>Rust</li>
-            <li>Left 4 Dead 2</li>
-            <li>Uno</li>
-            <li>Catan Universe</li>
-            <li>Super Smash Bros</li>
-            <li>Multiversus</li>
-            <li>StarCraft</li>
-            <li>Diablo 3</li>
-            <li>Minecraft</li>
-            <li>Portals</li>
-            <li>Team Fortress 2</li>
-            <li>Worms Armageddon</li>
-            <li>Unreal Tournament 3</li>
-            <li>Unreal Tournament 2004</li>
-            <li>Lineage 2</li>
-            <li>Age Of Mythology: The Titans Expansion</li>
-            <li>Counter-Strike 1.6</li> <li>Unreal Tournament</li>
-            <li>Tibia</li>
-            <li>Diablo 2 Expansion</li>
-            <li>Super Mario World</li>
-            <li>Cartas Mitos y Leyenda</li>
-            </ul> <p>&#x200B;</p>
-            <p>
-            <p>Modo Historia:</p>
+            <h2>Historia</h2>
             <p>
                 En la epoca del colegio, cuando se jugaba cosas como escondidas, murallita, quemadas y ese tipo de juegos,
                 mi hermano en casa jugaba Diablo 2, por lo que yo comence a jugarlo tambien (les copiaba todo).
@@ -209,10 +225,10 @@ var publicaciones_to_show=[
   },
   {
       'post_id':"juegos_me_gustan",
-      'post_img':'img/posts/juegos_me_gustan_ai_generated_gamepost_stablediffusionweb_com.jpeg',
+      'post_img':'img/galeria/juegos_me_gustan/ai_generated_gamepost_stablediffusionweb_com.jpeg',
       'post_url':'post.html?id=juegos_me_gustan',
-      'post_date':'2014-01-15T12:23:42Z',
-      'post_edit':'2022-08-15T12:23:42Z',
+      'post_date':'2014-01-15T19:23:42Z',
+      'post_edit':'2022-08-15T15:23:42Z',
       'post_title':'Juegos que me gustan',
       'post_in':'Esta web',
       'zmdi':'account',
