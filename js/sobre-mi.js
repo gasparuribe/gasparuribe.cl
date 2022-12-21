@@ -75,13 +75,11 @@ Promise.all(promises)
               if(data.spotify){
                 show_spotify(data.spotify);
               }
-              if(data.youtube){
-                if(data.youtube.posts){
-                  var dyp=data.youtube.posts;
-                  dyp.forEach((post)=>{
-                    publicaciones_to_show.push(post);
-                  });
-                }
+              if(data.posts){
+                var dyp=data.posts;
+                dyp.forEach((post)=>{
+                  publicaciones_to_show.push(post);
+                });
               }
               //get publicaciones
             }else if(response.url==freddit){
@@ -258,7 +256,7 @@ function show_spotify(spotify_data){
     if(spotify_data.playing.last_song){
       document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend','<span class="ref-name mb-5 mt-20">(pausa)  </span>'+spotify_data.playing.last_song.song+' - '+spotify_data.playing.last_song.artists);
     }else{
-      document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend',"---nada---");
+      document.getElementById("spotify_now_playing").insertAdjacentHTML('beforeend',"---Nada en Spotify---");
     }
   }
   if(spotify_data.top_songs.response=="ok"){
