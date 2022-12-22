@@ -173,7 +173,7 @@ function filter_posts_by_id(array,id_to_filter){
 
 function show_posts(){
   /* Ordenar publicaciones */
-  publicaciones_to_show=filter_posts_by_id(publicaciones_to_show,['arte_dani','katara_nami','test',]);
+  publicaciones_to_show=filter_posts_by_id(publicaciones_to_show,['arte_dani','katara_nami','test','media_me_gusta']);
   publicaciones_to_show.sort(function(a,b){
     if(a.post_edit&&b.post_edit&&a.post_date&&b.post_date){
       var aa= Date.parse(new Date(a.post_edit));

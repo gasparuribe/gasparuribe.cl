@@ -2,9 +2,9 @@ var sobre_esta_web_text=`
 <div class="row">
     <div class="col-lg-12">
         <div class="mdl-card mdl-shadow--2dp mb-30">
-        Para mí este sitio cumple una función similar a las redes sociales, pero un poco más propio y personalizado, ya que yo lo ensamble.
-        Me es difícil sentirme cómodo por lo expuesto, pero al mismo tiempo me gusta que exista.
-        No necesito esta web, no soy conocido y creo que puede ser negativo serlo, tampoco creo tener algún talento único o excepcional.
+          Para mí este sitio es un lugar donde puedo compartir un poco más de mí mismo y mostrar algunos de mis intereses y conocimientos.
+          Disfruto mucho el proceso de trabajar en esta web, aunque a veces me siento un poco incómodo compartiendo cosas personales en línea
+          y no siento que tenga una habilidad única, excepcional o interesante, espero que este sitio siga siendo un lugar donde pueda compartir mis pensamientos y experiencias con otros.
         </div>
     </div>
 </div>
@@ -71,45 +71,46 @@ var juegos_me_gustan=`
 <div class="row">
     <div class="col-sm-6 mb-30">
       <div class="mdl-card mdl-shadow--2dp mb-30">
-        <h2>Lista</h2>
+        <h2>Lista Recientes</h2>
         <ul style="list-style: inside;">
-        <li>Splitgate</li>
-        <li>PlayerUnknown&#39;s Battlegrounds (PUBG PC)</li>
-        <li>Ajedrez</li>
-        <li>RealmRoyale</li>
-        <li>OverWatch</li>
-        <li>Paladins</li>
-        <li>Minimotorways</li>
-        <li>Rust</li>
-        <li>Left 4 Dead 2</li>
-        <li>Uno</li>
-        <li>Catan Universe</li>
-        <li>Super Smash Bros</li>
-        <li>Multiversus</li>
-        <li>StarCraft</li>
-        <li>Diablo 3</li>
-        <li>Minecraft</li>
-        <li>Portals</li>
-        <li>Team Fortress 2</li>
-        <li>Worms Armageddon</li>
-        <li>Unreal Tournament 3</li>
-        <li>Unreal Tournament 2004</li>
-        <li>Lineage 2</li>
-        <li>Age Of Mythology: The Titans Expansion</li>
-        <li>Counter-Strike 1.6</li> <li>Unreal Tournament</li>
-        <li>Tibia</li>
-        <li>Diablo 2 Expansion</li>
-        <li>Super Mario World</li>
-        <li>Cartas Mitos y Leyenda</li>
+          <li>Splitgate</li>
+          <li>PlayerUnknown&#39;s Battlegrounds (PUBG PC)</li>
+          <li>Ajedrez</li>
+        </ul>
+        <h2>Lista completa</h2>
+        <ul style="list-style: inside;">
+          <li>OverWatch</li>
+          <li>RealmRoyale</li>
+          <li>Paladins</li>
+          <li>Minimotorways</li>
+          <li>Rust</li>
+          <li>Left 4 Dead 2</li>
+          <li>Uno</li>
+          <li>Catan Universe</li>
+          <li>Cartas Mitos y Leyenda</li>
+          <li>Super Smash Bros</li>
+          <li>Multiversus</li>
+          <li>StarCraft</li>
+          <li>Diablo 3</li>
+          <li>Minecraft</li>
+          <li>Portals</li>
+          <li>Team Fortress 2</li>
+          <li>Worms Armageddon</li>
+          <li>Unreal Tournament 3</li>
+          <li>Unreal Tournament 2004</li>
+          <li>Lineage 2</li>
+          <li>Age Of Mythology: The Titans Expansion</li>
+          <li>Counter-Strike 1.6</li> <li>Unreal Tournament</li>
+          <li>Tibia</li>
+          <li>Diablo 2 Expansion</li>
+          <li>Super Mario World</li>
         </ul>
       </div>
     </div>
     <div class="col-sm-6 mb-30">
       <div class="mdl-card mdl-shadow--2dp mb-30">
-        <p>Rara vez grabo y mi habilidad no destaca de forma positiva, pero de todas formas les comparto estos videos seleccionados.</p>
-      </div>
-      <div class="mdl-card mdl-shadow--2dp mb-30">
         <h2>Playlist de Gameplay</h2>
+        <p>Rara vez grabo y mi habilidad no destaca de forma positiva, pero de todas formas les comparto estos videos seleccionados.</p>
         <iframe width="100%" height="315" src="https://www.youtube.com/embed/videoseries?list=PLnZnMBzLxULACdKl3Y_Yey1JHbgYUis_F"
         title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
       </div>
@@ -130,6 +131,60 @@ var juegos_me_gustan=`
     </div>
 </div>
 `;
+var libro_historial=`
+<div class="row">
+  <div class="col-lg-12">
+      <div class="mdl-card mdl-shadow--2dp mb-30">
+        <h2>Libros</h2>
+        <ul style="list-style: inside;">
+          <li>
+            <span style="font-weight: bold;">Como son y como funcionan casi todas las cosas - Gonzalo Ang, Reader's Digest</span>
+            <p>
+              No estoy seguro que año, pero entre el 2008 y 2012 mi hermano tenía este libro, ahora tengo el mío propio, ya que es uno de mis favoritos.
+            </p>
+          </li>
+          <li>
+            <span style="font-weight: bold;">El mundo de Sofía - Jostein Gaarder</span>
+            <p>
+              Leído aproximadamente el 2015, este libro me lo recomendo mi papá. El libro relata la historia de una niña a quien se le empieza
+              a enseñar filosofía y simultáneamente le enseña al lector. La historia de Sofia, de manera personal,
+              es muy buena e impredecible. Un libro completamente recomendable.
+            </p>
+          </li>
+          <li>
+            <span style="font-weight: bold;">El caballero de la armadura oxidada - Robert Fisher</span>
+            <p>
+              Leído aproximadamente el 2014, linda historia y con buenas enseñansas. Leído solo una vez, me lo presto mi mama.
+            </p>
+          </li>
+          <li>
+            <span style="font-weight: bold;">Eragon - Christopher Paolini</span>
+            <p>
+              Leído aproximadamente el 2011.
+            </p>
+          </li>
+          <li>
+            <span style="font-weight: bold;">La biblia del lenguaje corporal - Judi James</span>
+            <p>Leído aproximadamente el 2010, "Mucho de lo que me preguntas está respondido aquí. Si lo lees a conciencia, quizá yo termine haciendo las preguntas ;) Feliz Cumpleaños Fran S."</p>
+          </li>
+          <li>
+            <span style="font-weight: bold;">El Hobbit - J. R. R. Tolkien</span>
+            <p>
+              Leído aproximadamente el 2010.
+            </p>
+          </li>
+          <li>
+            <span style="font-weight: bold;">Historias extraordinarias - Edgar Allan Poe</span>
+            <p>
+              Me lo regalo una querida profesora al ver que fue el primer libro que me gusto y leí completo...
+              "Con mucho cariño parati Martín, ojala lo disfrutes mucho. Miss María Teresa. 15 de Diciembre'09"
+            </p>
+          </li>
+        </ul>
+      </div>
+    </div>
+</div>
+`;
 
 
 
@@ -147,7 +202,7 @@ var publicaciones_to_show=[
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
-    'post_excerpt':'Es mi espacio personal, para mi gusto. Le cambio detalles constantemente poco a poco.',
+    'post_excerpt':'Ensamblo esta web para mí, un espacio personal. Le cambio detalles constantemente poco a poco.',
     'post_text':sobre_esta_web_text
   },
   {
@@ -233,7 +288,32 @@ var publicaciones_to_show=[
       'post_in':'Esta web',
       'zmdi':'account',
       'zmdi_color':'bg-hotpink',
-      'post_excerpt':'Intentare mantener este post actualizado, contiene una lista e historia de todos los juegos que alguna vez jugue.',
+      'post_excerpt':'Una lista e historia de casi todos los juegos que alguna vez jugue. Intentare mantener este post actualizado...',
       'post_text':juegos_me_gustan,
+    },
+    {
+      'post_id':"media_me_gusta",
+      'post_img':'',
+      'post_url':'post.html?id=media_me_gusta',
+      'post_date':'2014-01-15T19:23:42Z',
+      //'post_edit':'2022-08-15T15:23:42Z',
+      'post_title':'Peliculas, series y anime que me gustan',
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':'Una lista e historia de casi todas las peliculas, series y anime que alguna vez vi. Intentare mantener este post actualizado...',
+    },
+    {
+      'post_id':"libro_historial",
+      'post_img':'https://via.placeholder.com/460x272?text=Libros%21%21%21',
+      'post_url':'post.html?id=libro_historial',
+      'post_date':'2014-01-15T19:23:42Z',
+      'post_edit':'2017-05-16T14:01:07Z',
+      'post_title':'Historial de lectura',
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':'Una lista e historia de casi todos los libros que alguna vez lei. Me es difícil comenzar un libro. Si no contamos tutoriales, codigos, libros de colegio/universidad y similares no soy muy lector...Intentare mantener este post actualizado...',
+      'post_text':libro_historial,
     }
 ];
