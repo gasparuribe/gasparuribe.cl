@@ -13,6 +13,9 @@ app.controller('ContactController', function ($scope, $http) {
         if (contactform.$valid) {
           $scope.resultMessage = "cargando";
           $scope.result='bg-yellow';
+
+          $scope.formData.alia="HC";
+          $scope.formData.contact="gasparuribe.cl";
             $http({
                 method  : 'POST',
                 url     : aws_url+'?action=contacto',
