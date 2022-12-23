@@ -3,8 +3,10 @@ var sobre_esta_web_text=`
     <div class="col-lg-12">
         <div class="mdl-card mdl-shadow--2dp mb-30">
           Para mí este sitio es un lugar donde puedo compartir un poco más de mí mismo y mostrar algunos de mis intereses y conocimientos.
-          Disfruto mucho el proceso de trabajar en esta web, aunque a veces me siento un poco incómodo compartiendo cosas personales en línea
-          y no siento que tenga una habilidad única, excepcional o interesante, espero que este sitio siga siendo un lugar donde pueda compartir mis pensamientos y experiencias con otros.
+          Disfruto mucho el proceso de trabajar en esta web, aunque a veces me siento un poco incómodo compartiendo cosas personales en línea.
+          Y si bien tengo variados talentos, no siento que tenga una habilidad única, excepcional o interesante que justifique esta web,
+          más que demostrar parte de mis conocimientos, quizá ser de agrado para mis cercanos o ayudarme a recordar.
+          Espero algún día tener más razones positivas para la existencia de esta web, pero prefiero una utopía tecnológica.
         </div>
     </div>
 </div>
@@ -185,6 +187,124 @@ var libro_historial=`
     </div>
 </div>
 `;
+var media_historial=`
+<div class="row">
+    <div class="col-sm-6 mb-30">
+      <div class="mdl-card mdl-shadow--2dp mb-30">
+        <h2>Series</h2>
+        <h3>Actualmente:</h3>
+        <ul style="list-style: inside;">
+          <li>En otro momento agregare</li>
+        </ul>
+        <h3>Antes 2022</h3>
+        <ul style="list-style: inside;">
+          <li>En otro momento agregare</li>
+        </ul>
+        <h3>Antes 2014</h3>
+        <ul style="list-style: inside;">
+          <li>The Walking Dead</li>
+          <li>White Collar</li>
+          <li>Breaking Bad</li>
+          <li>Weeds</li>
+          <li>Sliders</li>
+          <li>Lie To Me</li>
+          <li>No Ordinary Family</li>
+          <li>Arrested Development</li>
+          <li>Lost</li>
+          <li>Flashforward</li>
+          <li>Prison Break</li>
+        </ul>
+      </div>
+      <div class="mdl-card mdl-shadow--2dp mb-30">
+        <h2>Peliculas</h2>
+        <ul style="list-style: inside;">
+          <li>En otro momento agregare</li>
+        </ul>
+      </div>
+    </div>
+    <div class="col-sm-6 mb-30">
+      <div class="mdl-card mdl-shadow--2dp mb-30">
+        <h2>Anime</h2>
+        <h3>Actualmente:</h3>
+        <ul style="list-style: inside;">
+          <li>One Piece</li>
+        </ul>
+        <h3>Antes 2022</h3>
+        <ul style="list-style: inside;">
+          <li>Naruto Shippuden</li>
+          <li>Shingeki No Kyojin</li>
+        </ul>
+        <h3>Antes 2012</h3>
+        <ul style="list-style: inside;">
+          <li>Moyashimon</li>
+          <li>Sword Art Online</li>
+          <li>Psycho-Pass</li>
+          <li>Kokoro Connect</li>
+          <li>Nazo No Kanojo X</li>
+          <li>Hunter X Hunter 2011</li>
+          <li>Chobits</li>
+          <li>Dance In The Vampire Bund</li>
+          <li>Elfen Lied</li>
+          <li>Hunter X Hunter</li>
+          <li>Tenchi Muyō! Ryo-Ōki</li>
+          <li>Tenchi En Tokyo</li>
+          <li>El Universo De Tenchi</li>
+          <li>Sora No Otoshimono Forte</li>
+          <li>Sora No Otoshimono</li>
+          <li>Shuffle! Memories</li>
+          <li>Onegai Teacher</li>
+          <li>Rosario + Vampire 2</li>
+          <li>Rosario + Vampire</li>
+          <li>Ore No Imouto Ga Konnani Kawaii Wake Ga Nai</li>
+          <li>Princess Lover!</li>
+          <li>Shakugan No Shana Second</li>
+          <li>Shakugan No Shana</li>
+          <li>Death Note</li>
+          <li>Naruto</li>
+          <li>Fullmetal Alchemist</li>
+          <li>Vampire Knight Guilty</li>
+          <li>Vampire Knight</li>
+          <li>Seto No Hanayome</li>
+          <li>Kaicho Wa Maid-Sama!</li>
+          <li>Samurai X</li>
+          <li>Jormungand Perfect Order</li>
+          <li>Jormungand</li>
+          <li>Avatar: La Leyenda De Korra (Libro 2)</li>
+          <li>Avatar: La Leyenda De Korra</li>
+          <li>Avatar: La Leyenda De Aang (Libro Fuego)</li>
+          <li>Avatar: La Leyenda De Aang (Libro Tierra)</li>
+          <li>Avatar: La Leyenda De Aang (Libro Agua)</li>
+          <li>Zero No Tsukaima</li>
+          <li>Zero No Tsukaima: Futatsuki NoKishi</li>
+          <li>Zero No Tsukaima Princess No Rondo</li>
+          <li>Zero No Tsukaima: Final</li>
+          <li>Clannad After Story</li>
+          <li>Clannad</li>
+          <li>Lamune</li>
+          <li>Strike Witches 2</li>
+          <li>Strike Witches</li>
+          <li>Special A</li>
+          <li>Kage Kara Mamoru</li>
+          <li>Rec</li>
+          <li>Night Wizard</li>
+          <li>Nyan Koi!</li>
+          <li>Shaman King</li>
+          <li>KaZe No Stigma</li>
+          <li>Motto To Love Ru ~Trouble~</li>
+          <li>To Love Ru</li>
+          <li>DearS</li>
+          <li>Kannazuki No Miko</li>
+          <li>Iron Man</li>
+          <li>Kuttsukiboshi</li>
+          <li>Asobi Ni Iku Yo!</li>
+          <li>Angel Beats</li>
+          <li>Ichigo 100%</li>
+          <li>Invasor Zim</li>
+        </ul>
+      </div>
+    </div>
+</div>
+`;
 
 
 
@@ -199,6 +319,7 @@ var publicaciones_to_show=[
     'post_edit':'2022-08-16T22:44:52Z',
     'post_title':'Sobre Esta Web',
     'post_galeria':'',
+    'post_cat':['personal','productivo'],
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
@@ -214,6 +335,7 @@ var publicaciones_to_show=[
     'post_edit':'2019-03-19T23:24:33Z',
     'post_title':'Lucky 2013❤2019',
     'post_galeria':'lucky',
+    'post_cat':['personal'],
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
@@ -229,6 +351,7 @@ var publicaciones_to_show=[
     'post_edit':'2022-12-08T14:12:14Z',
     'post_title':'Katara 2020❤',
     'post_galeria':'katara',
+    'post_cat':['personal'],
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
@@ -244,6 +367,7 @@ var publicaciones_to_show=[
     //'post_edit':'2022-06-05T14:12:14Z',
     'post_title':'Nami 2021❤',
     'post_galeria':'nami',
+    'post_cat':['personal'],
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
@@ -258,6 +382,7 @@ var publicaciones_to_show=[
     //'post_edit':'2022-06-05T14:12:14Z',
     'post_title':'Galeria Katara y Nami ❤',
     'post_galeria':'katara_nami',
+    'post_cat':['personal'],
     'post_in':'Esta web',
     'zmdi':'favorite',
     'zmdi_color':'bg-hotpink',
@@ -272,6 +397,7 @@ var publicaciones_to_show=[
     //'post_edit':'2022-06-05T14:12:14Z',
     'post_title':'El genial arte de Dani!',
     'post_galeria':'arte_dani',
+    'post_cat':['personal'],
     'post_in':'Esta web',
     'zmdi':'accounts',
     'zmdi_color':'bg-hotpink',
@@ -285,6 +411,7 @@ var publicaciones_to_show=[
       'post_date':'2014-01-15T19:23:42Z',
       'post_edit':'2022-08-15T15:23:42Z',
       'post_title':'Juegos que me gustan',
+      'post_cat':['personal'],
       'post_in':'Esta web',
       'zmdi':'account',
       'zmdi_color':'bg-hotpink',
@@ -292,16 +419,18 @@ var publicaciones_to_show=[
       'post_text':juegos_me_gustan,
     },
     {
-      'post_id':"media_me_gusta",
-      'post_img':'',
-      'post_url':'post.html?id=media_me_gusta',
-      'post_date':'2014-01-15T19:23:42Z',
-      //'post_edit':'2022-08-15T15:23:42Z',
-      'post_title':'Peliculas, series y anime que me gustan',
+      'post_id':"media_historial",
+      'post_img':'https://via.placeholder.com/460x272?text=Media%21%21%21',
+      'post_url':'post.html?id=media_historial',
+      'post_date':'2014-01-15T19:43:03Z',
+      'post_edit':'2022-04-20T15:23:42Z',
+      'post_title':'Historial Multimedia',
+      'post_cat':['personal'],
       'post_in':'Esta web',
       'zmdi':'account',
       'zmdi_color':'bg-hotpink',
-      'post_excerpt':'Una lista e historia de casi todas las peliculas, series y anime que alguna vez vi. Intentare mantener este post actualizado...',
+      'post_excerpt':'Peliculas, series y anime que alguna vez vi. Intentare mantener este post actualizado...',
+      'post_text':media_historial,
     },
     {
       'post_id':"libro_historial",
@@ -310,10 +439,95 @@ var publicaciones_to_show=[
       'post_date':'2014-01-15T19:23:42Z',
       'post_edit':'2017-05-16T14:01:07Z',
       'post_title':'Historial de lectura',
+      'post_cat':['personal'],
       'post_in':'Esta web',
       'zmdi':'account',
       'zmdi_color':'bg-hotpink',
       'post_excerpt':'Una lista e historia de casi todos los libros que alguna vez lei. Me es difícil comenzar un libro. Si no contamos tutoriales, codigos, libros de colegio/universidad y similares no soy muy lector...Intentare mantener este post actualizado...',
       'post_text':libro_historial,
+    },
+    {
+      'post_id':"centromip_cl_2017",
+      'post_img':'https://via.placeholder.com/460x272?text=Centro%20MIP%202017',
+      'post_url':'post.html?id=centromip_cl_2017',
+      'post_date':'2018-01-01T11:06:28Z',
+      'post_title':'Sitio para centromip.cl 2017',
+      'post_cat':['productivo'],
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':'Sitio desarrollado en wordpress, utilizando el diseño...'
+    },
+    {
+      'post_id':"centromip_cl_2018",
+      'post_img':'https://via.placeholder.com/460x272?text=Centro%20MIP%202018',
+      'post_url':'post.html?id=centromip_cl_2018',
+      'post_date':'2018-01-01T23:12:30Z',
+      'post_title':'Sitio para centromip.cl 2017',
+      'post_cat':['productivo'],
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':'Sitio desarrollado en wordpress, utilizando el diseño...'
+    },
+    {
+      'post_id':"people_partners_cl_2019",
+      'post_img':'https://via.placeholder.com/460x272?text=Centro%20MIP',
+      'post_url':'post.html?id=people_partners_cl_2019',
+      'post_date':'2019-04-07T11:18:17Z',
+      'post_title':'Sitio para People & Partners',
+      'post_cat':['productivo'],
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':'Sitio People&Partners en colaboración con Jose Uribe'
+    },
+    {
+      'post_id':"beuchatfilms_cl_2021",
+      'post_img':'https://via.placeholder.com/460x272?text=Beuchatfilms',
+      'post_url':'post.html?id=beuchatfilms_cl_2021',
+      'post_date':'2021-01-04T14:24:24Z',
+      'post_title':'Sitio para beuchatfilms.cl',
+      'post_cat':['productivo'],
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':''
+    },
+    {
+      'post_id':"mgup_cl",
+      'post_img':'https://via.placeholder.com/460x272?text=Beuchatfilms',
+      'post_url':'post.html?id=mgup_cl',
+      'post_date':'2020-05-22T17:28:00Z',
+      'post_title':'Sitio para mgup.cl',
+      'post_cat':['productivo'],
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':''
+    },
+    {
+      'post_id':"mariainespesqueira_cl",
+      'post_img':'https://via.placeholder.com/460x272?text=Beuchatfilms',
+      'post_url':'post.html?id=mgup_cl',
+      'post_date':'2019-05-07T20:15:52Z',
+      'post_title':'Sitio para mariainespesqueira.cl',
+      'post_cat':['productivo'],
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':''
+    },
+    {
+      'post_id':"proyecto_maid",
+      'post_img':'https://via.placeholder.com/460x272?text=Beuchatfilms',
+      'post_url':'post.html?id=proyecto_maid',
+      'post_date':'2020-05-22T17:28:00Z',
+      'post_title':'Proyeto maid',
+      'post_cat':['productivo'],
+      'post_in':'Esta web',
+      'zmdi':'account',
+      'zmdi_color':'bg-hotpink',
+      'post_excerpt':''
     }
 ];
