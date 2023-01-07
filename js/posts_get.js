@@ -227,7 +227,7 @@ var media_historial=`
         <h2>Anime</h2>
         <h3>Actualmente:</h3>
         <ul style="list-style: inside;">
-          <li>One Piece</li>
+          <li>One Piece (1045 || 18-12-2022)</li>
         </ul>
         <h3>Antes 2022</h3>
         <ul style="list-style: inside;">
@@ -417,7 +417,7 @@ var publicaciones_to_show=[
       'zmdi_color':'bg-hotpink',
       'post_excerpt':'Una lista e historia de casi todos los juegos que alguna vez jugue. Intentare mantener este post actualizado...',
       'post_text':juegos_me_gustan,
-    },
+    },/*
     {
       'post_id':"media_historial",
       'post_img':'https://via.placeholder.com/460x272?text=Media%21%21%21',
@@ -445,7 +445,7 @@ var publicaciones_to_show=[
       'zmdi_color':'bg-hotpink',
       'post_excerpt':'Una lista e historia de casi todos los libros que alguna vez lei. Me es difícil comenzar un libro. Si no contamos tutoriales, codigos, libros de colegio/universidad y similares no soy muy lector...Intentare mantener este post actualizado...',
       'post_text':libro_historial,
-    },
+    },*/
     {
       'post_id':"centromip_cl_2017",
       'post_img':'https://via.placeholder.com/460x272?text=Centro%20MIP%202017',
