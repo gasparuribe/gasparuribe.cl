@@ -311,4 +311,4 @@ if(meshoy>=mescumple){
 }else{
     calculo_edad =anohoy-anocumple-1;
 }
-element_edad.innerHTML = "<b>" + calculo_edad + "</b>Años";
+element_edad.innerHTML = "<b>" + calculo_edad + "</b> Años";
