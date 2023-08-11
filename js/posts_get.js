@@ -6,7 +6,7 @@ var sobre_esta_web_text=`
           Disfruto mucho el proceso de trabajar en esta web, aunque a veces me siento un poco incómodo compartiendo cosas personales en línea.
           Y si bien tengo variados talentos, no siento que tenga una habilidad única, excepcional o interesante que justifique esta web,
           más que demostrar parte de mis conocimientos, quizá ser de agrado para mis cercanos o ayudarme a recordar.
-          Espero algún día tener más razones positivas para la existencia de esta web, pero prefiero una utopía tecnológica.
+          Espero algún día tener más razones positivas para la existencia de esta web.
         </div>
     </div>
 </div>
@@ -29,7 +29,6 @@ var sobre_esta_web_text=`
               <li><h6 style="display: inline;">GitHub</h6> <a target="_blank" href="https://docs.github.com/" style="color: #3c3cff;text-decoration: underline;font-size: 85%;" rel="nofollow">(Documentación)</a></li>
               <li><h6 style="display: inline;">Telegram</h6> <a target="_blank" href="https://core.telegram.org/" style="color: #3c3cff;text-decoration: underline;font-size: 85%;" rel="nofollow">(Documentación)</a></li>
               <li><h6 style="display: inline;">YouTube Data</h6> <a target="_blank" href="https://developers.google.com/youtube/v3/" style="color: #3c3cff;text-decoration: underline;font-size: 85%;" rel="nofollow">(Documentación)</a></li>
-              <li><h6 style="display: inline;">Spotify</h6> <a target="_blank" href="https://developer.spotify.com/" style="color: #3c3cff;text-decoration: underline;font-size: 85%;" rel="nofollow">(Documentación)</a></li>
               <li><h6 style="display: inline;">Reddit</h6> <a target="_blank" href="https://www.reddit.com/dev/api/" style="color: #3c3cff;text-decoration: underline;font-size: 85%;" rel="nofollow">(Documentación)</a></li>
             </ul>
           </li>

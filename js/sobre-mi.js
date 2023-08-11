@@ -304,9 +304,11 @@ const currentYear = new Date().getFullYear();
 var mescumple=2;
 var meshoy=currentMonth;
 var anocumple=1994;
-var anohoy=currentYear;
+var anohoy = currentYear;
+var calculo_edad;
 if(meshoy>=mescumple){
-  element_edad.innerHTML=anohoy-anocumple;
+    calculo_edad =anohoy-anocumple;
 }else{
-  element_edad.innerHTML=anohoy-anocumple-1;
+    calculo_edad =anohoy-anocumple-1;
 }
+element_edad.innerHTML = "<b>" + calculo_edad + "</b>Años";
