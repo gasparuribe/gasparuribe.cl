@@ -298,17 +298,19 @@ function show_spotify(spotify_data){
   }
 }
 /* Muestra mi edad de forma dinamica */
-var element_edad=document.getElementById("edad");
-const currentMonth = new Date().getMonth() + 1;
-const currentYear = new Date().getFullYear();
-var mescumple=2;
-var meshoy=currentMonth;
-var anocumple=1994;
-var anohoy = currentYear;
-var calculo_edad;
-if(meshoy>=mescumple){
-    calculo_edad =anohoy-anocumple;
-}else{
-    calculo_edad =anohoy-anocumple-1;
+var element_edad = document.getElementById("edad");
+if (element_edad) {
+    const currentMonth = new Date().getMonth() + 1;
+    const currentYear = new Date().getFullYear();
+    var mescumple = 2;
+    var meshoy = currentMonth;
+    var anocumple = 1994;
+    var anohoy = currentYear;
+    var calculo_edad;
+    if (meshoy >= mescumple) {
+        calculo_edad = anohoy - anocumple;
+    } else {
+        calculo_edad = anohoy - anocumple - 1;
+    }
+    element_edad.innerHTML = "<b>" + calculo_edad + "</b> Años";
 }
-element_edad.innerHTML = "<b>" + calculo_edad + "</b> Años";
